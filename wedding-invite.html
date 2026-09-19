@@ -861,13 +861,13 @@
             top: -32px;
             z-index: 30;
             pointer-events: none;
-            color: #a40000;
+            color: #b58a42;
             font-size: 18px;
             animation: petal-fall var(--fall) linear forwards
         }
 
         .petal.heart {
-            color: #6f0000;
+            color: #8f6429;
             font-size: 20px
         }
 
@@ -1580,7 +1580,13 @@
         </section>
         <section class="content" id="content">
             <section class="section reveal-head">
-                <div class="eyebrow">Bismillah</div>
+                <div class="calligraphy-panel" aria-label="Bismillah calligraphy">
+                    <span class="calligraphy-mark">۞</span>
+                    <div class="arabic-calligraphy" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+                    <div class="calligraphy-translation">In the name of Allah, the Most Gracious, the Most Merciful
+                    </div>
+                    <span class="calligraphy-mark">۞</span>
+                </div>
                 <h2>Our forever<br>starts here</h2>
                 <p>In the name of Allah, the Most Gracious, the Most Merciful. With the blessings of our families, we
                     invite you to share in our joy.</p>
@@ -1592,13 +1598,6 @@
                     <div class="signature-names">Faizan <span>&amp;</span> Zia</div>
                     <div class="signature-blessing">With the blessings of Allah, our journey begins</div>
                     <span class="signature-rule"></span>
-                </div>
-                <div class="calligraphy-panel" aria-label="Bismillah calligraphy">
-                    <span class="calligraphy-mark">۞</span>
-                    <div class="arabic-calligraphy" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
-                    <div class="calligraphy-translation">In the name of Allah, the Most Gracious, the Most Merciful
-                    </div>
-                    <span class="calligraphy-mark">۞</span>
                 </div>
                 <div class="scratch-card">
                     <div class="eyebrow">A little reveal</div>
@@ -2622,19 +2621,19 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 8px
+            gap: 0
         }
 
         .gate-open-card h2 {
-            margin: 8px 0 6px !important;
+            margin: 4px 0 2px !important;
             max-width: 100%;
             line-height: .98 !important
         }
 
         .gate-open-card .eyebrow {
             position: relative;
-            top: -10px;
-            margin-bottom: 6px
+            top: -4px;
+            margin-bottom: 0
         }
 
         .envelope-stage.opened .gate-open-card h2 {
@@ -2666,7 +2665,7 @@
         }
 
         .gate-open-card .card-date {
-            margin: 16px 0 0;
+            margin: 4px 0 0;
             color: #a8752e;
             font: 700 italic 16px/1.2 'Cormorant Garamond', serif;
             letter-spacing: .06em;
@@ -3116,10 +3115,22 @@
         .page.open-page~.sparkle-layer {
             display: block
         }
+
+        .calligraphy-panel .calligraphy-mark {
+            display: block !important
+        }
+
+        .open-page .reveal-head {
+            padding-top: 20px !important
+        }
+
+        .open-page .reveal-head .calligraphy-panel {
+            margin-top: 0
+        }
     </style>
     <script>
         const finalGateway = document.querySelector('#envelope');
-        finalGateway.innerHTML = '<div class="envelope-gate"><img class="envelope-cover" src="assets/WhatsApp%20Image%202026-09-19%20at%205.02.13%20PM.jpeg" alt="Open the wedding invitation"><img class="envelope-logo-overlay" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Faizan and Zia gold embossed logo"><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div></div>';
+        finalGateway.innerHTML = '<div class="envelope-gate"><img class="envelope-cover" src="assets/WhatsApp%20Image%202026-09-19%20at%205.02.13%20PM.jpeg" alt="Open the wedding invitation"><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div></div>';
         finalGateway.addEventListener('click', openInvite);
 
         const sparkleLayer = document.createElement('div'); sparkleLayer.className = 'sparkle-layer';
