@@ -1611,7 +1611,14 @@
                                 <div class="unit"><strong id="minutes">--</strong><span>Minutes</span></div>
                                 <div class="unit"><strong id="seconds">--</strong><span>Seconds</span></div>
                             </div>
-                        </div><canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+                        </div>
+                        <div class="scratch-date-label">Scratch to reveal the date</div>
+                        <div class="heart-scratch-row">
+                            <div class="heart-scratch"><strong>28th</strong><canvas data-heart-scratch></canvas></div>
+                            <div class="heart-scratch"><strong>Nov</strong><canvas data-heart-scratch></canvas></div>
+                            <div class="heart-scratch"><strong>2026</strong><canvas data-heart-scratch></canvas></div>
+                        </div>
+                        <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
                         <div class="scratch-label">Scratch gently to reveal</div>
                     </div>
                 </div>
@@ -1703,6 +1710,17 @@
         function scratch(event) { if (!drawing) return; const rect = canvas.getBoundingClientRect(); const point = { x: Math.max(0, Math.min(event.clientX - rect.left, rect.width)), y: Math.max(0, Math.min(event.clientY - rect.top, rect.height)) }; context.globalCompositeOperation = 'destination-out'; context.lineCap = 'round'; context.lineJoin = 'round'; context.lineWidth = 40; context.beginPath(); if (lastPoint) { context.moveTo(lastPoint.x, lastPoint.y); context.lineTo(point.x, point.y); } else { context.moveTo(point.x, point.y); context.lineTo(point.x, point.y); } context.stroke(); context.globalCompositeOperation = 'source-over'; lastPoint = point; revealScratchStatus(); }
         function stopScratch() { drawing = false; lastPoint = null; }
         resizeCanvas(); addEventListener('resize', () => { setTimeout(resizeCanvas, 50); }); canvas.addEventListener('pointerdown', event => { event.preventDefault(); drawing = true; lastPoint = null; canvas.setPointerCapture(event.pointerId); scratch(event); }); canvas.addEventListener('pointermove', event => { if (drawing) scratch(event); }); canvas.addEventListener('pointerup', stopScratch); canvas.addEventListener('pointerleave', stopScratch); canvas.addEventListener('pointercancel', stopScratch);
+        document.querySelectorAll('[data-heart-scratch]').forEach(heartCanvas => {
+            const heartContext = heartCanvas.getContext('2d', { willReadFrequently: true });
+            let heartDrawing = false;
+            let heartLastPoint = null;
+            function resizeHeart() { heartCanvas.width = window.innerWidth <= 620 ? 54 : 58; heartCanvas.height = window.innerWidth <= 620 ? 49 : 52; heartContext.clearRect(0, 0, heartCanvas.width, heartCanvas.height); heartContext.fillStyle = '#b58a42'; heartContext.fillRect(0, 0, heartCanvas.width, heartCanvas.height); }
+            function scratchHeart(event) { if (!heartDrawing) return; const rect = heartCanvas.getBoundingClientRect(); const point = { x: event.clientX - rect.left, y: event.clientY - rect.top }; heartContext.globalCompositeOperation = 'destination-out'; heartContext.lineCap = 'round'; heartContext.lineJoin = 'round'; heartContext.lineWidth = 16; heartContext.beginPath(); if (heartLastPoint) { heartContext.moveTo(heartLastPoint.x, heartLastPoint.y); heartContext.lineTo(point.x, point.y); } else { heartContext.moveTo(point.x, point.y); heartContext.lineTo(point.x, point.y); } heartContext.stroke(); heartContext.globalCompositeOperation = 'source-over'; heartLastPoint = point; const data = heartContext.getImageData(0, 0, heartCanvas.width, heartCanvas.height).data; let clearPixels = 0; for (let index = 3; index < data.length; index += 4) if (data[index] < 40) clearPixels += 1; if (clearPixels / (heartCanvas.width * heartCanvas.height) > .28) heartCanvas.classList.add('revealed'); }
+            function stopHeart() { heartDrawing = false; heartLastPoint = null; }
+            resizeHeart(); heartCanvas._resizeHeart = resizeHeart; heartCanvas.addEventListener('pointerdown', event => { event.preventDefault(); heartDrawing = true; heartLastPoint = null; heartCanvas.setPointerCapture(event.pointerId); scratchHeart(event); }); heartCanvas.addEventListener('pointermove', scratchHeart); heartCanvas.addEventListener('pointerup', stopHeart); heartCanvas.addEventListener('pointerleave', stopHeart); heartCanvas.addEventListener('pointercancel', stopHeart);
+        });
+        setTimeout(() => document.querySelectorAll('[data-heart-scratch]').forEach(heartCanvas => heartCanvas._resizeHeart?.()), 1200);
+        addEventListener('resize', () => document.querySelectorAll('[data-heart-scratch]').forEach(heartCanvas => heartCanvas._resizeHeart?.()));
         document.querySelector('#share').addEventListener('click', async () => { const data = { title: 'Faizan & Zia | Wedding Invitation', text: 'Join Faizan and Zia on 28th November from 7 PM at Kohinoor Marriage Hall.', url: location.href }; if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(location.href); alert('Invitation link copied') } });
         const rsvpForm = document.querySelector('#rsvp');
         function showerPetals() { if (document.body.dataset.petals) return; document.body.dataset.petals = 'done'; for (let index = 0; index < 150; index++) { const petal = document.createElement('span'); const heart = index % 5 === 0; petal.className = heart ? 'petal heart' : 'petal'; petal.textContent = heart ? '♥' : index % 3 === 0 ? '✿' : '❀'; petal.style.left = Math.random() * 100 + 'vw'; petal.style.setProperty('--drift', (Math.random() * 260 - 130) + 'px'); petal.style.setProperty('--fall', (18 + Math.random() * 8) + 's'); petal.style.animationDelay = (Math.random() * 6) + 's'; petal.style.fontSize = (12 + Math.random() * 13) + 'px'; document.body.appendChild(petal); setTimeout(() => petal.remove(), 32000) } }
@@ -1741,7 +1759,7 @@
     </script>
     <script>
         const gateway = document.querySelector('#envelope');
-        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
+        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
     </script>
     <style>
         .page {
@@ -2666,8 +2684,7 @@
 
         .gate-open-card .card-date {
             margin: 0;
-            align-self: end
-            color: #a8752e;
+            align-self: end color: #a8752e;
             font: 700 italic 16px/1.2 'Cormorant Garamond', serif;
             letter-spacing: .06em;
             opacity: 0
@@ -3147,6 +3164,78 @@
             line-height: 1.2
         }
 
+        .scratch-wrap .countdown {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 68px
+        }
+
+        .scratch-date-label {
+            position: absolute;
+            z-index: 4;
+            top: 5px;
+            left: 0;
+            right: 0;
+            color: #8c642b;
+            font: 600 8px Montserrat;
+            letter-spacing: .13em;
+            text-transform: uppercase
+        }
+
+        .heart-scratch-row {
+            position: absolute;
+            z-index: 9 !important;
+            top: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 1px 0 2px;
+        }
+
+        .heart-scratch {
+            width: 58px;
+            height: 52px;
+            position: relative;
+            display: grid;
+            place-items: center;
+            color: #9d6b25;
+            font: 700 12px 'Cormorant Garamond', serif;
+            clip-path: polygon(50% 100%, 0 34%, 4% 18%, 18% 5%, 34% 8%, 50% 24%, 66% 8%, 82% 5%, 96% 18%, 100% 34%);
+            background: #f0d28d;
+            overflow: hidden
+        }
+
+        .heart-scratch strong {
+            position: relative;
+            z-index: 1
+        }
+
+        .heart-scratch canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10 !important;
+            cursor: crosshair;
+            touch-action: none;
+            pointer-events: auto background: linear-gradient(135deg, #b58a42, #e4bd69 48%, #956725)
+        }
+
+        @media(max-width:620px) {
+            .heart-scratch-row {
+                gap: 5px
+            }
+
+            .heart-scratch {
+                width: 54px;
+                height: 49px
+            }
+        }
+
         .open-page .reveal-head {
             padding-top: 20px !important
         }
@@ -3157,7 +3246,7 @@
     </style>
     <script>
         const finalGateway = document.querySelector('#envelope');
-        finalGateway.innerHTML = '<div class="envelope-gate"><img class="envelope-cover" src="assets/WhatsApp%20Image%202026-09-19%20at%205.02.13%20PM.jpeg" alt="Open the wedding invitation"><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div></div>';
+        finalGateway.innerHTML = '<div class="envelope-gate"><img class="envelope-cover" src="assets/WhatsApp%20Image%202026-09-19%20at%205.02.13%20PM.jpeg" alt="Open the wedding invitation"><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2></div></div></div>';
         finalGateway.addEventListener('click', openInvite);
 
         const sparkleLayer = document.createElement('div'); sparkleLayer.className = 'sparkle-layer';
