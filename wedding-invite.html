@@ -1742,7 +1742,7 @@
     </script>
     <script>
         const gateway = document.querySelector('#envelope');
-        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><p class="card-presence-note">Your presence is our greatest gift;<br>Your dua\'s and blessings are all we seek.</p><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p>28th November · 7:00 PM</p></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
+        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
     </script>
     <style>
         .page {
@@ -2625,6 +2625,58 @@
             max-width: 100%
         }
 
+        .envelope-stage.opened .gate-open-card h2 {
+            color: #8d6429;
+            text-shadow: 0 0 10px rgba(214, 169, 83, .2);
+            animation: names-highlight 1.4s 1.35s ease-out both
+        }
+
+        .envelope-stage.opened .gate-open-card h2 span {
+            color: #c19343
+        }
+
+        @keyframes names-highlight {
+            0% {
+                opacity: .35;
+                transform: translateY(5px)
+            }
+
+            55% {
+                opacity: 1;
+                text-shadow: 0 0 18px rgba(214, 169, 83, .48)
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                text-shadow: 0 0 10px rgba(214, 169, 83, .2)
+            }
+        }
+
+        .gate-open-card .card-date {
+            margin: 0;
+            color: #a8752e;
+            font: 700 italic 16px/1.2 'Cormorant Garamond', serif;
+            letter-spacing: .06em;
+            opacity: 0
+        }
+
+        .envelope-stage.opened .gate-open-card .card-date {
+            animation: date-reveal .8s 1.15s cubic-bezier(.2, .8, .2, 1) forwards
+        }
+
+        @keyframes date-reveal {
+            from {
+                opacity: 0;
+                transform: translateY(8px) scale(.96)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
         .gate-open-card .card-presence-note {
             max-width: 100%;
             margin: 8px 0 6px
@@ -2815,7 +2867,7 @@
     </style>
     <script>
         const gateway = document.querySelector('#envelope');
-        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><p class="card-presence-note">Your presence is our greatest gift;<br>Your dua\'s and blessings are all we seek.</p><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p>28th November · 7:00 PM</p></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
+        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
 
         const sparkleLayer = document.createElement('div');
         sparkleLayer.style.position = 'fixed'; sparkleLayer.style.inset = '0'; sparkleLayer.style.pointerEvents = 'none'; sparkleLayer.style.zIndex = '22'; sparkleLayer.style.overflow = 'hidden';
