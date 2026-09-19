@@ -2617,23 +2617,23 @@
             position: relative;
             z-index: 1;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
             align-items: center;
-            gap: 0
+            justify-items: center
         }
 
         .gate-open-card h2 {
-            margin: 4px 0 2px !important;
+            margin: 0 !important;
             max-width: 100%;
-            line-height: .98 !important
+            line-height: .98 !important;
+            align-self: center
         }
 
         .gate-open-card .eyebrow {
-            position: relative;
-            top: -4px;
-            margin-bottom: 0
+            position: static;
+            margin: 16px 0 0;
+            align-self: start
         }
 
         .envelope-stage.opened .gate-open-card h2 {
@@ -2665,7 +2665,8 @@
         }
 
         .gate-open-card .card-date {
-            margin: 4px 0 0;
+            margin: 0;
+            align-self: end
             color: #a8752e;
             font: 700 italic 16px/1.2 'Cormorant Garamond', serif;
             letter-spacing: .06em;
@@ -3117,7 +3118,33 @@
         }
 
         .calligraphy-panel .calligraphy-mark {
-            display: block !important
+            display: inline-block !important;
+            font-size: 17px;
+            line-height: 1
+        }
+
+        .calligraphy-panel {
+            display: flex !important;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 5px 10px;
+            width: min(100%, 620px);
+            margin-top: 18px;
+            padding: 13px 15px 11px;
+            min-height: 0
+        }
+
+        .calligraphy-panel .arabic-calligraphy {
+            font-size: clamp(1.05rem, 2.5vw, 1.55rem);
+            line-height: 1.05
+        }
+
+        .calligraphy-panel .calligraphy-translation {
+            flex-basis: 100%;
+            grid-column: auto;
+            font-size: 7px;
+            line-height: 1.2
         }
 
         .open-page .reveal-head {
