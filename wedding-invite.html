@@ -1588,8 +1588,9 @@
                     <span class="calligraphy-mark">۞</span>
                 </div>
                 <h2>Our forever<br>starts here</h2>
-                <p>In the name of Allah, the Most Gracious, the Most Merciful. With the blessings of our families, we
-                    invite you to share in our joy.</p>
+                <p>And one of His signs is that He created for you spouses from among yourselves<br>so that you may find
+                    comfort in them.<br>And He has placed between you compassion and mercy.<br>Surely in this are signs
+                    for people who reflect.<br><strong>Surah Ar-Rum - 30:21</strong></p>
                 <div class="signature-panel">
                     <span class="signature-rule"></span>
                     <img src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg"
@@ -1604,19 +1605,19 @@
                     <h3>Scratch to reveal</h3>
                     <p>Discover the time remaining until our celebration</p>
                     <div class="scratch-wrap" id="scratchWrap">
-                        <div class="countdown">
+                        <div class="scratch-date-label">Scratch to reveal the date</div>
+                        <div class="heart-scratch-row">
+                            <div class="heart-scratch"><strong>28th</strong><canvas data-heart-scratch></canvas></div>
+                            <div class="heart-scratch"><strong>Nov</strong><canvas data-heart-scratch></canvas></div>
+                            <div class="heart-scratch"><strong>2026</strong><canvas data-heart-scratch></canvas></div>
+                        </div>
+                        <div class="countdown countdown-timer">
                             <div class="timer">
                                 <div class="unit"><strong id="days">--</strong><span>Days</span></div>
                                 <div class="unit"><strong id="hours">--</strong><span>Hours</span></div>
                                 <div class="unit"><strong id="minutes">--</strong><span>Minutes</span></div>
                                 <div class="unit"><strong id="seconds">--</strong><span>Seconds</span></div>
                             </div>
-                        </div>
-                        <div class="scratch-date-label">Scratch to reveal the date</div>
-                        <div class="heart-scratch-row">
-                            <div class="heart-scratch"><strong>28th</strong><canvas data-heart-scratch></canvas></div>
-                            <div class="heart-scratch"><strong>Nov</strong><canvas data-heart-scratch></canvas></div>
-                            <div class="heart-scratch"><strong>2026</strong><canvas data-heart-scratch></canvas></div>
                         </div>
                         <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
                         <div class="scratch-label">Scratch gently to reveal</div>
@@ -1703,7 +1704,7 @@
         const page = document.querySelector('#page'); const envelope = document.querySelector('#envelope');
         function openInvite() { if (page.classList.contains('open-page')) return; envelope.classList.add('opened'); setTimeout(() => { page.classList.add('open-page'); setTimeout(() => { document.querySelector('#content').scrollIntoView({ behavior: 'smooth' }); setTimeout(resizeCanvas, 100); setTimeout(resizeCanvas, 500); }, 10000); }, 1000) }
         envelope.addEventListener('click', openInvite); envelope.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') openInvite() });
-        const target = new Date('2026-11-28T19:00:00+05:30').getTime(); function updateCountdown() { let distance = Math.max(0, target - Date.now()); const day = Math.floor(distance / 86400000); distance %= 86400000; const hour = Math.floor(distance / 3600000); distance %= 3600000; const minute = Math.floor(distance / 60000); const second = Math.floor(distance / 1000) % 60; document.querySelector('#days').textContent = String(day).padStart(2, '0'); document.querySelector('#hours').textContent = String(hour).padStart(2, '0'); document.querySelector('#minutes').textContent = String(minute).padStart(2, '0'); document.querySelector('#seconds').textContent = String(second).padStart(2, '0') } updateCountdown(); setInterval(updateCountdown, 1000);
+        const target = new Date('2026-11-28T19:00:00+05:30').getTime(); let countdownStarted = false; function updateCountdown() { if (!countdownStarted) return; let distance = Math.max(0, target - Date.now()); const day = Math.floor(distance / 86400000); distance %= 86400000; const hour = Math.floor(distance / 3600000); distance %= 3600000; const minute = Math.floor(distance / 60000); const second = Math.floor(distance / 1000) % 60; document.querySelector('#days').textContent = String(day).padStart(2, '0'); document.querySelector('#hours').textContent = String(hour).padStart(2, '0'); document.querySelector('#minutes').textContent = String(minute).padStart(2, '0'); document.querySelector('#seconds').textContent = String(second).padStart(2, '0') } function startCountdown() { if (countdownStarted) return; countdownStarted = true; document.querySelector('.countdown-timer').classList.add('is-started'); updateCountdown(); } setInterval(updateCountdown, 1000);
         const canvas = document.querySelector('#scratchCanvas'); const context = canvas.getContext('2d', { willReadFrequently: true }); const scratchWrap = document.querySelector('#scratchWrap'); const RSVP_EMAIL = 'chowdhary.faizan60@gmail.com'; const RSVP_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwrlz7Z9_p8W5UzZPd3PDTCweOCTBGW4wPG6fGBmL-dlXc_yHly8PFy_qBJp5RhsKMACg/exec'; let drawing = false; let scratched = 0; function resizeCanvas() { const width = scratchWrap.offsetWidth || scratchWrap.clientWidth || 300; const height = scratchWrap.offsetHeight || scratchWrap.clientHeight || 150; canvas.width = width; canvas.height = height; canvas.style.width = width + 'px'; canvas.style.height = height + 'px'; context.setTransform(1, 0, 0, 1, 0, 0); context.clearRect(0, 0, canvas.width, canvas.height); context.fillStyle = 'rgba(173, 138, 92, 0.96)'; context.fillRect(0, 0, canvas.width, canvas.height); context.fillStyle = '#f5e7c8'; context.font = '600 11px Montserrat'; context.textAlign = 'center'; context.fillText('✦  SCRATCH HERE  ✦', canvas.width / 2, canvas.height / 2 + 4); }
         function revealScratchStatus() { const data = context.getImageData(0, 0, canvas.width, canvas.height).data; let transparentPixels = 0; for (let index = 3; index < data.length; index += 4) { if (data[index] < 40) transparentPixels += 1 } const revealRatio = transparentPixels / (canvas.width * canvas.height); if (revealRatio > 0.12) scratchWrap.classList.add('scratched'); }
         let lastPoint = null;
@@ -1715,7 +1716,7 @@
             let heartDrawing = false;
             let heartLastPoint = null;
             function resizeHeart() { heartCanvas.width = window.innerWidth <= 620 ? 54 : 58; heartCanvas.height = window.innerWidth <= 620 ? 49 : 52; heartContext.clearRect(0, 0, heartCanvas.width, heartCanvas.height); heartContext.fillStyle = '#b58a42'; heartContext.fillRect(0, 0, heartCanvas.width, heartCanvas.height); }
-            function scratchHeart(event) { if (!heartDrawing) return; const rect = heartCanvas.getBoundingClientRect(); const point = { x: event.clientX - rect.left, y: event.clientY - rect.top }; heartContext.globalCompositeOperation = 'destination-out'; heartContext.lineCap = 'round'; heartContext.lineJoin = 'round'; heartContext.lineWidth = 16; heartContext.beginPath(); if (heartLastPoint) { heartContext.moveTo(heartLastPoint.x, heartLastPoint.y); heartContext.lineTo(point.x, point.y); } else { heartContext.moveTo(point.x, point.y); heartContext.lineTo(point.x, point.y); } heartContext.stroke(); heartContext.globalCompositeOperation = 'source-over'; heartLastPoint = point; const data = heartContext.getImageData(0, 0, heartCanvas.width, heartCanvas.height).data; let clearPixels = 0; for (let index = 3; index < data.length; index += 4) if (data[index] < 40) clearPixels += 1; if (clearPixels / (heartCanvas.width * heartCanvas.height) > .28) heartCanvas.classList.add('revealed'); }
+            function scratchHeart(event) { if (!heartDrawing) return; const rect = heartCanvas.getBoundingClientRect(); const point = { x: event.clientX - rect.left, y: event.clientY - rect.top }; heartContext.globalCompositeOperation = 'destination-out'; heartContext.lineCap = 'round'; heartContext.lineJoin = 'round'; heartContext.lineWidth = 16; heartContext.beginPath(); if (heartLastPoint) { heartContext.moveTo(heartLastPoint.x, heartLastPoint.y); heartContext.lineTo(point.x, point.y); } else { heartContext.moveTo(point.x, point.y); heartContext.lineTo(point.x, point.y); } heartContext.stroke(); heartContext.globalCompositeOperation = 'source-over'; heartLastPoint = point; const data = heartContext.getImageData(0, 0, heartCanvas.width, heartCanvas.height).data; let clearPixels = 0; for (let index = 3; index < data.length; index += 4) if (data[index] < 40) clearPixels += 1; if (clearPixels / (heartCanvas.width * heartCanvas.height) > .28) { heartCanvas.classList.add('revealed'); if ([...document.querySelectorAll('[data-heart-scratch]')].every(heart => heart.classList.contains('revealed'))) startCountdown(); } }
             function stopHeart() { heartDrawing = false; heartLastPoint = null; }
             resizeHeart(); heartCanvas._resizeHeart = resizeHeart; heartCanvas.addEventListener('pointerdown', event => { event.preventDefault(); heartDrawing = true; heartLastPoint = null; heartCanvas.setPointerCapture(event.pointerId); scratchHeart(event); }); heartCanvas.addEventListener('pointermove', scratchHeart); heartCanvas.addEventListener('pointerup', stopHeart); heartCanvas.addEventListener('pointerleave', stopHeart); heartCanvas.addEventListener('pointercancel', stopHeart);
         });
@@ -3169,6 +3170,20 @@
             flex-direction: column;
             gap: 5px;
             padding-top: 68px
+        }
+
+        .scratch-wrap>.scratch-canvas,
+        .scratch-wrap>.scratch-label {
+            display: none !important
+        }
+
+        .countdown-timer {
+            opacity: 0;
+            transition: opacity .7s ease
+        }
+
+        .countdown-timer.is-started {
+            opacity: 1
         }
 
         .scratch-date-label {
