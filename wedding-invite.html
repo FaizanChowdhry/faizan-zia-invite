@@ -1334,6 +1334,36 @@
             filter: drop-shadow(0 24px 32px rgba(0, 0, 0, .42))
         }
 
+        .envelope-gate:after {
+            content: '';
+            position: absolute;
+            z-index: 12;
+            inset: -35%;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient(circle at center, rgba(255, 253, 235, 1) 0 6%, rgba(243, 209, 133, .7) 14%, transparent 43%), repeating-conic-gradient(from 0deg at center, transparent 0deg 8deg, rgba(255, 235, 169, .48) 8deg 9.5deg, transparent 9.5deg 18deg);
+            mix-blend-mode: screen;
+        }
+
+        .envelope-gate:before {
+            content: '';
+            position: absolute;
+            z-index: 13;
+            inset: -20%;
+            pointer-events: none;
+            opacity: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 8%, #fff8d8 0 3px, transparent 5px), radial-gradient(circle at 82% 28%, #f5d58c 0 2px, transparent 4px), radial-gradient(circle at 91% 68%, #fff4c5 0 3px, transparent 5px), radial-gradient(circle at 18% 76%, #e8bd63 0 2px, transparent 4px), radial-gradient(circle at 8% 32%, #fff8d8 0 2px, transparent 4px);
+        }
+
+        .envelope-stage.opened .envelope-gate:after {
+            animation: opening-light 1.15s .1s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        .envelope-stage.opened .envelope-gate:before {
+            animation: opening-rays 1.05s .12s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
         .jannah-gate {
             border-color: #d8b873;
             background: linear-gradient(90deg, #203b4d 0 12%, #d9c08a 12% 16%, #2b4655 16% 21%, transparent 21% 79%, #2b4655 79% 84%, #d9c08a 84% 88%, #203b4d 88% 100%), linear-gradient(180deg, #27495a, #122838) !important;
@@ -1496,7 +1526,14 @@
         .gifts p {
             margin: 10px 0 0;
             color: #59636a;
-            font: 18px/1.5 'Cormorant Garamond', serif
+            font: italic 21px/1.5 'Cormorant Garamond', serif
+        }
+
+        .gifts .eyebrow {
+            color: #a8752e;
+            font: 600 30px/1 'Cormorant Garamond', serif;
+            letter-spacing: .08em;
+            text-transform: none
         }
 
         .button {
@@ -1593,10 +1630,10 @@
             <section class="section reveal-head">
                 <div class="calligraphy-panel" aria-label="Bismillah calligraphy">
                     <span class="calligraphy-mark">۞</span>
-                    <div class="arabic-calligraphy" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+                    <div class="arabic-calligraphy" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ <span
+                            class="inline-calligraphy-mark">۞</span></div>
                     <div class="calligraphy-translation">In the name of Allah, the Most Gracious, the Most Merciful
                     </div>
-                    <span class="calligraphy-mark">۞</span>
                 </div>
                 <h2>Our forever<br>starts here</h2>
                 <p>And one of His signs is that He created for you spouses from among yourselves<br>so that you may find
@@ -2411,6 +2448,12 @@
             letter-spacing: .02em
         }
 
+        .inline-calligraphy-mark {
+            color: #b58a42;
+            font-size: .8em;
+            margin-inline-start: .18em
+        }
+
         .calligraphy-translation {
             grid-column: 2;
             color: #796b59;
@@ -2985,6 +3028,38 @@
             }
         }
 
+        @keyframes opening-light {
+            0% {
+                opacity: 0;
+                transform: scale(.3) rotate(-8deg)
+            }
+
+            32% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.45) rotate(10deg)
+            }
+        }
+
+        @keyframes opening-rays {
+            0% {
+                opacity: 0;
+                transform: scale(.25) rotate(-18deg)
+            }
+
+            35% {
+                opacity: .95
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.35) rotate(18deg)
+            }
+        }
+
         @keyframes calligraphy-breathe {
 
             0%,
@@ -3260,7 +3335,8 @@
             z-index: 10 !important;
             cursor: crosshair;
             touch-action: none;
-            pointer-events: auto background: linear-gradient(135deg, #b58a42, #e4bd69 48%, #956725)
+            pointer-events: auto;
+            background: linear-gradient(135deg, #b58a42, #e4bd69 48%, #956725)
         }
 
         @media(max-width:620px) {
