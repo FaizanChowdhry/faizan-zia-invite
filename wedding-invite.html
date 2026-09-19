@@ -1633,7 +1633,7 @@
         <section class="content" id="content">
             <section class="section reveal-head">
                 <div class="calligraphy-panel" aria-label="Bismillah calligraphy">
-                        <div class="arabic-calligraphy" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+                    <div class="arabic-calligraphy" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
                     <div class="calligraphy-translation">In the name of Allah, the Most Gracious, the Most Merciful
                     </div>
                 </div>
@@ -1698,12 +1698,11 @@
                 <div class="event-grid">
                     <div class="event-item"><strong>28</strong><span>November</span></div>
                     <div class="event-item"><strong>7 PM</strong><span>Onwards</span></div>
-                    <div class="event-item"><strong>KMH</strong><span>Kohinoor Marriage Hall</span></div>
+                    <div class="event-item"><strong>KML</strong><span>Kohinoor Marriage Lawn</span></div>
                 </div>
-                <p class="address">Chunawala Compound, CTS No. 737/8/6,<br>Sawant Marg, Veera Desai Road, Andheri
-                    (W),<br>Mumbai - 400058</p>
+                <p class="address">Kohinoor Marriage Lawn, 4RQQ+332, Veera Desai Rd,<br>Mhada Colony, Prathmesh Complex, Andheri West,<br>Mumbai, Maharashtra 400053</p>
                 <div class="actions"><a class="button" target="_blank" rel="noopener"
-                        href="https://www.google.com/maps/dir/?api=1&amp;destination=Kohinoor%20Marriage%20Hall%2C%20Chunawala%20Compound%2C%20CTS%20No.%20737%2F8%2F6%2C%20Sawant%20Marg%2C%20Veera%20Desai%20Road%2C%20Andheri%20(W)%2C%20Mumbai%20-%20400058">Get
+                        href="https://www.google.com/maps/dir/?api=1&amp;destination=Kohinoor%20Marriage%20Lawn%2C%204RQQ%2B332%2C%20Veera%20Desai%20Rd%2C%20Mhada%20Colony%2C%20Prathmesh%20Complex%2C%20Andheri%20West%2C%20Mumbai%2C%20Maharashtra%20400053">Get
                         directions</a><button class="button alt" id="share" type="button">Share invitation</button>
                 </div>
                 <div class="gifts">
@@ -1785,7 +1784,7 @@
             const fallbackStop = () => { fallbackDrawing = false; fallbackPoint = null; };
             heartCanvas.addEventListener('mousedown', fallbackStart); heartCanvas.addEventListener('mousemove', fallbackErase); heartCanvas.addEventListener('touchstart', fallbackStart, { passive: false }); heartCanvas.addEventListener('touchmove', fallbackErase, { passive: false }); addEventListener('mouseup', fallbackStop); addEventListener('touchend', fallbackStop);
         });
-        document.querySelector('#share').addEventListener('click', async () => { const data = { title: 'Faizan & Zia | Wedding Invitation', text: 'Join Faizan and Zia on 28th November from 7 PM at Kohinoor Marriage Hall.', url: location.href }; if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(location.href); alert('Invitation link copied') } });
+        document.querySelector('#share').addEventListener('click', () => { const invitationUrl = 'https://faizanchowdhry.github.io/faizan-zia-invite/wedding-invite.html'; const message = `Join Faizan & Zia on 28th November from 7 PM at Kohinoor Marriage Lawn, 4RQQ+332, Veera Desai Rd, Mhada Colony, Prathmesh Complex, Andheri West, Mumbai, Maharashtra 400053.\n\n${invitationUrl}`; window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank', 'noopener'); });
         const rsvpForm = document.querySelector('#rsvp');
         function showerPetals() { if (document.body.dataset.petals) return; document.body.dataset.petals = 'done'; for (let index = 0; index < 150; index++) { const petal = document.createElement('span'); const heart = index % 5 === 0; petal.className = heart ? 'petal heart' : 'petal'; petal.textContent = heart ? '♥' : index % 3 === 0 ? '✿' : '❀'; petal.style.left = Math.random() * 100 + 'vw'; petal.style.setProperty('--drift', (Math.random() * 260 - 130) + 'px'); petal.style.setProperty('--fall', (18 + Math.random() * 8) + 's'); petal.style.animationDelay = (Math.random() * 6) + 's'; petal.style.fontSize = (12 + Math.random() * 13) + 'px'; document.body.appendChild(petal); setTimeout(() => petal.remove(), 32000) } }
         envelope.addEventListener('click', showerPetals);
