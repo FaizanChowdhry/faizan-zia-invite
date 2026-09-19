@@ -861,13 +861,13 @@
             top: -32px;
             z-index: 30;
             pointer-events: none;
-            color: #d88f9a;
+            color: #a40000;
             font-size: 18px;
             animation: petal-fall var(--fall) linear forwards
         }
 
         .petal.heart {
-            color: #a43d52;
+            color: #6f0000;
             font-size: 20px
         }
 
@@ -1706,7 +1706,7 @@
         resizeCanvas(); addEventListener('resize', () => { setTimeout(resizeCanvas, 50); }); canvas.addEventListener('pointerdown', event => { event.preventDefault(); drawing = true; lastPoint = null; canvas.setPointerCapture(event.pointerId); scratch(event); }); canvas.addEventListener('pointermove', event => { if (drawing) scratch(event); }); canvas.addEventListener('pointerup', stopScratch); canvas.addEventListener('pointerleave', stopScratch); canvas.addEventListener('pointercancel', stopScratch);
         document.querySelector('#share').addEventListener('click', async () => { const data = { title: 'Faizan & Zia | Wedding Invitation', text: 'Join Faizan and Zia on 28th November from 7 PM at Kohinoor Marriage Hall.', url: location.href }; if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(location.href); alert('Invitation link copied') } });
         const rsvpForm = document.querySelector('#rsvp');
-        function showerPetals() { if (document.body.dataset.petals) return; document.body.dataset.petals = 'done'; for (let index = 0; index < 150; index++) { const petal = document.createElement('span'); const heart = index % 5 === 0; petal.className = heart ? 'petal heart' : 'petal'; petal.textContent = heart ? '♥' : index % 3 === 0 ? '✿' : '❀'; petal.style.left = Math.random() * 100 + 'vw'; petal.style.setProperty('--drift', (Math.random() * 260 - 130) + 'px'); petal.style.setProperty('--fall', (10 + Math.random() * 6) + 's'); petal.style.animationDelay = (Math.random() * 4) + 's'; petal.style.fontSize = (12 + Math.random() * 13) + 'px'; document.body.appendChild(petal); setTimeout(() => petal.remove(), 20500) } }
+        function showerPetals() { if (document.body.dataset.petals) return; document.body.dataset.petals = 'done'; for (let index = 0; index < 150; index++) { const petal = document.createElement('span'); const heart = index % 5 === 0; petal.className = heart ? 'petal heart' : 'petal'; petal.textContent = heart ? '♥' : index % 3 === 0 ? '✿' : '❀'; petal.style.left = Math.random() * 100 + 'vw'; petal.style.setProperty('--drift', (Math.random() * 260 - 130) + 'px'); petal.style.setProperty('--fall', (18 + Math.random() * 8) + 's'); petal.style.animationDelay = (Math.random() * 6) + 's'; petal.style.fontSize = (12 + Math.random() * 13) + 'px'; document.body.appendChild(petal); setTimeout(() => petal.remove(), 32000) } }
         envelope.addEventListener('click', showerPetals);
         envelope.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') showerPetals() });
         rsvpForm.addEventListener('submit', async event => {
@@ -2546,6 +2546,10 @@
             display: none !important
         }
 
+        .hero:after {
+            display: none !important
+        }
+
         .page-logo-watermark {
             position: fixed;
             z-index: 5 !important;
@@ -2617,12 +2621,20 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center
+            align-items: center;
+            gap: 8px
         }
 
         .gate-open-card h2 {
-            margin: 12px 0 10px;
-            max-width: 100%
+            margin: 8px 0 6px !important;
+            max-width: 100%;
+            line-height: .98 !important
+        }
+
+        .gate-open-card .eyebrow {
+            position: relative;
+            top: -10px;
+            margin-bottom: 6px
         }
 
         .envelope-stage.opened .gate-open-card h2 {
@@ -2654,7 +2666,7 @@
         }
 
         .gate-open-card .card-date {
-            margin: 0;
+            margin: 16px 0 0;
             color: #a8752e;
             font: 700 italic 16px/1.2 'Cormorant Garamond', serif;
             letter-spacing: .06em;
@@ -2864,12 +2876,40 @@
                 margin-top: 80px !important
             }
         }
+
+        .page:not(.open-page) .hero {
+            min-height: 100svh !important;
+            padding: 0 !important;
+            place-items: center
+        }
+
+        .page:not(.open-page) .hero-copy,
+        .page:not(.open-page) .hero:after,
+        .page:not(.open-page) .floral,
+        .page:not(.open-page) .tap,
+        .page:not(.open-page) .page-logo-watermark,
+        #page:not(.open-page) ~ .sparkle-layer {
+            display: none !important
+        }
+
+        .page:not(.open-page) .envelope-stage {
+            width: 100vw !important;
+            max-width: none !important;
+            height: 100svh !important;
+            aspect-ratio: auto !important;
+            margin: 0 !important
+        }
+
+        .page.open-page .page-logo-watermark,
+        .page.open-page ~ .sparkle-layer {
+            display: block
+        }
     </style>
     <script>
         const gateway = document.querySelector('#envelope');
         gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
 
-        const sparkleLayer = document.createElement('div');
+        const sparkleLayer = document.createElement('div'); sparkleLayer.className = 'sparkle-layer';
         sparkleLayer.style.position = 'fixed'; sparkleLayer.style.inset = '0'; sparkleLayer.style.pointerEvents = 'none'; sparkleLayer.style.zIndex = '22'; sparkleLayer.style.overflow = 'hidden';
         for (let i = 0; i < 30; i++) {
             const star = document.createElement('span');
