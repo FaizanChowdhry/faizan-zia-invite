@@ -2744,6 +2744,139 @@
             animation: none
         }
 
+        .jannah-gate {
+            border: 5px solid #c59a4e !important;
+            background:
+                radial-gradient(circle at 50% 6%, rgba(255, 249, 219, .95) 0 2%, transparent 12%),
+                linear-gradient(90deg, #8d6125 0 7%, #f5d98f 7% 10%, #b88332 10% 14%, transparent 14% 86%, #b88332 86% 90%, #f5d98f 90% 93%, #8d6125 93%),
+                linear-gradient(180deg, #fffdf4 0%, #e9c979 48%, #bd8731 100%) !important;
+            box-shadow: inset 0 0 0 9px rgba(255, 244, 194, .3), inset 0 0 38px rgba(108, 65, 12, .32), 0 28px 42px rgba(91, 57, 18, .25)
+        }
+
+        .jannah-gate:before {
+            inset: 9% 13% 0 !important;
+            background:
+                radial-gradient(circle at 50% 13%, #fffdf0 0 2%, #f0cd7d 9%, transparent 25%),
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, .16) 0 1px, transparent 1px 26px),
+                linear-gradient(180deg, #fffdf6 0%, #f4dfaa 50%, #d19e48 100%) !important;
+            box-shadow: inset 0 0 44px rgba(255, 255, 255, .86), inset 0 -20px 30px rgba(126, 78, 21, .16)
+        }
+
+        .gate-frame {
+            inset: 5px !important;
+            border: 2px solid rgba(255, 238, 180, .96) !important;
+            box-shadow: inset 0 0 0 9px rgba(165, 111, 28, .14), 0 0 18px rgba(198, 151, 67, .22)
+        }
+
+        .gate-frame:before,
+        .gate-frame:after {
+            width: 16% !important;
+            background: linear-gradient(90deg, #78501b, #ffe7a3 32%, #bb8732 68%, #714716) !important;
+            box-shadow: inset 0 0 15px rgba(80, 46, 10, .34), 0 0 8px rgba(190, 139, 48, .25)
+        }
+
+        .gate-doors {
+            inset: 10% 14% 0 !important
+        }
+
+        .gate-door {
+            background:
+                repeating-linear-gradient(90deg, rgba(255, 246, 202, .18) 0 1px, transparent 1px 22px),
+                linear-gradient(105deg, #82571c, #f6d78c 17%, #ae7928 48%, #ffe4a0 83%, #82551b) !important;
+            border: 2px solid #ffeab1 !important;
+            box-shadow: inset 0 0 28px rgba(77, 42, 7, .42), inset 0 0 5px #fff1b3, 0 0 13px rgba(92, 54, 12, .28)
+        }
+
+        .gate-door:before {
+            inset: 10% 9% !important;
+            border: 2px solid rgba(255, 239, 179, .9) !important;
+            color: #fff0b7 !important;
+            font-size: 62px !important;
+            text-shadow: 0 0 9px rgba(255, 225, 130, .58)
+        }
+
+        .gate-door:after {
+            inset: 4% 5% !important;
+            border: 1px solid rgba(255, 240, 188, .9) !important;
+            box-shadow: inset 0 0 12px rgba(255, 226, 138, .18)
+        }
+
+        /* Quiet palace-arch treatment: the monogram remains the single focal point. */
+        .jannah-gate {
+            border: 3px solid #c79b52 !important;
+            border-radius: 50% 50% 0 0 / 17% 17% 0 0 !important;
+            background: radial-gradient(circle at 50% 15%, #fff9df 0 3%, transparent 22%), linear-gradient(180deg, #fffef8 0%, #f1dfb2 52%, #b98232 100%) !important;
+            box-shadow: inset 0 0 0 7px rgba(255, 248, 220, .65), inset 0 0 45px rgba(111, 67, 13, .22), 0 24px 42px rgba(85, 52, 14, .2)
+        }
+
+        .jannah-gate:before {
+            inset: 11% 17% 0 !important;
+            background: radial-gradient(circle at 50% 8%, rgba(255, 255, 248, .9) 0 3%, transparent 24%), linear-gradient(180deg, #faf0d1 0%, #d8b875 66%, #9d6d27 100%) !important;
+            box-shadow: inset 0 0 42px rgba(255, 255, 255, .8)
+        }
+
+        .jannah-gate:after {
+            content: '✦';
+            top: 4%;
+            color: #b3833d;
+            font-size: 18px;
+            letter-spacing: 0
+        }
+
+        .gate-frame {
+            inset: 6px !important;
+            border: 1px solid rgba(255, 236, 177, .95) !important;
+            border-radius: 48% 48% 0 0 / 15% 15% 0 0 !important;
+            box-shadow: inset 0 0 0 11px rgba(181, 138, 66, .08)
+        }
+
+        .gate-frame:before,
+        .gate-frame:after {
+            top: 14% !important;
+            width: 13% !important;
+            background: linear-gradient(90deg, #a8752b, #f9e5ad 44%, #c18f3e) !important;
+            box-shadow: inset 0 0 10px rgba(103, 62, 14, .18)
+        }
+
+        .gate-doors {
+            inset: 13% 18% 0 !important;
+            gap: 3px !important
+        }
+
+        .gate-door {
+            background: linear-gradient(105deg, #fffdf4 0%, #f5e7bf 42%, #d4aa61 100%) !important;
+            border: 1px solid #c5974c !important;
+            box-shadow: inset 0 0 0 5px rgba(255, 255, 255, .34), inset 0 0 24px rgba(142, 93, 22, .16)
+        }
+
+        .gate-door:before {
+            content: '';
+            inset: 13% 12% 4% !important;
+            display: block !important;
+            border: 1px solid rgba(180, 132, 54, .65) !important;
+            border-radius: 48% 48% 0 0 !important;
+            background: repeating-linear-gradient(45deg, transparent 0 13px, rgba(177, 132, 54, .12) 14px 15px)
+        }
+
+        .gate-door:after {
+            inset: 7% 8% 2% !important;
+            border: 1px solid rgba(182, 136, 58, .48) !important;
+            border-radius: 48% 48% 0 0 !important;
+            box-shadow: none
+        }
+
+        .gate-lock-logo {
+            width: 142px !important;
+            height: 142px !important;
+            padding: 9px !important;
+            border: 3px solid #c18a34 !important;
+            border-radius: 50% !important;
+            background: radial-gradient(circle at 35% 28%, #fffdf4, #f4dfad 72%, #d2a354) !important;
+            object-fit: contain !important;
+            box-shadow: inset 0 2px 2px rgba(255, 250, 218, .95), inset 0 -4px 5px rgba(111, 67, 12, .28), 0 0 0 2px rgba(255, 232, 165, .72), 0 8px 13px rgba(105, 66, 16, .34) !important;
+            filter: drop-shadow(0 -1px 1px rgba(255, 248, 219, .9)) !important
+        }
+
         .gate-open-card:after {
             content: '';
             position: absolute;
@@ -2847,6 +2980,84 @@
             }
         }
 
+        .envelope-gate {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: #f4eee3;
+        }
+
+        .envelope-cover {
+            position: absolute;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            cursor: pointer;
+            transition: transform 1.2s cubic-bezier(.2, .8, .2, 1), opacity .8s ease, filter .8s ease;
+            filter: drop-shadow(0 20px 25px rgba(100, 73, 39, .24));
+        }
+
+        .envelope-logo-overlay {
+            position: absolute;
+            z-index: 11;
+            left: 50%;
+            top: 50%;
+            width: min(30vw, 190px);
+            height: min(30vw, 190px);
+            transform: translate(-50%, -50%);
+            object-fit: contain;
+            border: 5px solid #c18a34;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 28%, #fffdf4, #f4dfad 74%, #c18a34);
+            padding: 0;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+            box-shadow: inset 0 2px 2px rgba(255, 250, 218, .95), inset 0 -5px 6px rgba(111, 67, 12, .3), 0 6px 12px rgba(105, 66, 16, .32);
+            filter: drop-shadow(0 -1px 1px rgba(255, 248, 219, .9));
+            transition: opacity .8s ease, transform 1.2s cubic-bezier(.2, .8, .2, 1);
+        }
+
+        .envelope-stage.opened .envelope-logo-overlay {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(.7);
+        }
+
+        .envelope-gate .gate-open-card {
+            z-index: 2;
+            left: 13% !important;
+            right: 13% !important;
+            bottom: 0 !important;
+            height: 78% !important;
+        }
+
+        .envelope-stage.opened .envelope-cover {
+            transform: translateY(-18%) scale(.86) rotate(-1.5deg);
+            opacity: 0;
+            filter: blur(2px);
+        }
+
+        .envelope-stage.opened .envelope-gate .gate-open-card {
+            z-index: 20 !important;
+            transform: translateY(-8%) scale(1.01) !important;
+        }
+
+        @media(max-width:620px) {
+            .envelope-cover {
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .envelope-logo-overlay {
+                width: 154px;
+                height: 154px;
+                padding: 0
+            }
+        }
+
         @media(max-width:620px) {
             .hero-copy {
                 top: 8% !important
@@ -2857,8 +3068,9 @@
             }
 
             .gate-lock-logo {
-                width: 92px;
-                height: 138px
+                width: 118px !important;
+                height: 118px !important;
+                padding: 7px !important
             }
 
             .page-logo-watermark {
@@ -2888,7 +3100,7 @@
         .page:not(.open-page) .floral,
         .page:not(.open-page) .tap,
         .page:not(.open-page) .page-logo-watermark,
-        #page:not(.open-page) ~ .sparkle-layer {
+        #page:not(.open-page)~.sparkle-layer {
             display: none !important
         }
 
@@ -2901,13 +3113,14 @@
         }
 
         .page.open-page .page-logo-watermark,
-        .page.open-page ~ .sparkle-layer {
+        .page.open-page~.sparkle-layer {
             display: block
         }
     </style>
     <script>
-        const gateway = document.querySelector('#envelope');
-        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
+        const finalGateway = document.querySelector('#envelope');
+        finalGateway.innerHTML = '<div class="envelope-gate"><img class="envelope-cover" src="assets/WhatsApp%20Image%202026-09-19%20at%205.02.13%20PM.jpeg" alt="Open the wedding invitation"><img class="envelope-logo-overlay" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg" alt="Faizan and Zia gold embossed logo"><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Nikah</div><h2>Faizan Chowdhry <span>&amp;</span> Zia Sayed</h2><p class="card-date">28th November · 7:00 PM</p></div></div></div>';
+        finalGateway.addEventListener('click', openInvite);
 
         const sparkleLayer = document.createElement('div'); sparkleLayer.className = 'sparkle-layer';
         sparkleLayer.style.position = 'fixed'; sparkleLayer.style.inset = '0'; sparkleLayer.style.pointerEvents = 'none'; sparkleLayer.style.zIndex = '22'; sparkleLayer.style.overflow = 'hidden';
