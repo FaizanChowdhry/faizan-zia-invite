@@ -1357,15 +1357,15 @@
         }
 
         .envelope-stage.opened .envelope-gate:after {
-            animation: opening-light 1.15s .1s cubic-bezier(.2, .8, .2, 1) both;
+            animation: opening-light 3s .05s cubic-bezier(.2, .8, .2, 1) both;
         }
 
         .envelope-stage.opened .envelope-gate:before {
-            animation: opening-rays 1.05s .12s cubic-bezier(.2, .8, .2, 1) both;
+            animation: opening-rays 3s .08s cubic-bezier(.2, .8, .2, 1) both;
         }
 
         .envelope-stage.opened .envelope-gate .gate-open-card {
-            animation: card-emerge-glow 1.25s .05s cubic-bezier(.2, .8, .2, 1) both;
+            animation: card-emerge-glow 3s .05s cubic-bezier(.2, .8, .2, 1) both;
         }
 
         .jannah-gate {
@@ -1658,8 +1658,8 @@
                     <div class="scratch-wrap" id="scratchWrap">
                         <div class="scratch-date-label">Scratch to reveal the date</div>
                         <div class="heart-scratch-row">
-                            <div class="heart-scratch"><strong>28th</strong><canvas data-heart-scratch></canvas></div>
-                            <div class="heart-scratch"><strong>Nov</strong><canvas data-heart-scratch></canvas></div>
+                            <div class="heart-scratch"><strong>28TH</strong><canvas data-heart-scratch></canvas></div>
+                            <div class="heart-scratch"><strong>NOV</strong><canvas data-heart-scratch></canvas></div>
                             <div class="heart-scratch"><strong>2026</strong><canvas data-heart-scratch></canvas></div>
                         </div>
                         <div class="countdown countdown-timer">
@@ -1770,8 +1770,8 @@
             const heartContext = heartCanvas.getContext('2d', { willReadFrequently: true });
             let heartDrawing = false;
             let heartLastPoint = null;
-            function resizeHeart() { heartCanvas.width = window.innerWidth <= 620 ? 54 : 58; heartCanvas.height = window.innerWidth <= 620 ? 49 : 52; heartContext.clearRect(0, 0, heartCanvas.width, heartCanvas.height); heartContext.fillStyle = '#b58a42'; heartContext.fillRect(0, 0, heartCanvas.width, heartCanvas.height); }
-            function scratchHeart(event) { if (!heartDrawing) return; const rect = heartCanvas.getBoundingClientRect(); const point = { x: event.clientX - rect.left, y: event.clientY - rect.top }; heartContext.globalCompositeOperation = 'destination-out'; heartContext.lineCap = 'round'; heartContext.lineJoin = 'round'; heartContext.lineWidth = 16; heartContext.beginPath(); if (heartLastPoint) { heartContext.moveTo(heartLastPoint.x, heartLastPoint.y); heartContext.lineTo(point.x, point.y); } else { heartContext.moveTo(point.x, point.y); heartContext.lineTo(point.x, point.y); } heartContext.stroke(); heartContext.globalCompositeOperation = 'source-over'; heartLastPoint = point; const data = heartContext.getImageData(0, 0, heartCanvas.width, heartCanvas.height).data; let clearPixels = 0; for (let index = 3; index < data.length; index += 4) if (data[index] < 40) clearPixels += 1; if (clearPixels / (heartCanvas.width * heartCanvas.height) > .28) { heartCanvas.classList.add('revealed'); if ([...document.querySelectorAll('[data-heart-scratch]')].every(heart => heart.classList.contains('revealed'))) startCountdown(); } }
+            function resizeHeart() { heartCanvas.width = window.innerWidth <= 620 ? 62 : 66; heartCanvas.height = window.innerWidth <= 620 ? 56 : 60; heartContext.clearRect(0, 0, heartCanvas.width, heartCanvas.height); heartContext.fillStyle = '#b58a42'; heartContext.fillRect(0, 0, heartCanvas.width, heartCanvas.height); }
+            function scratchHeart(event) { if (!heartDrawing) return; const rect = heartCanvas.getBoundingClientRect(); const point = { x: event.clientX - rect.left, y: event.clientY - rect.top }; heartContext.globalCompositeOperation = 'destination-out'; heartContext.lineCap = 'round'; heartContext.lineJoin = 'round'; heartContext.lineWidth = 16; heartContext.beginPath(); if (heartLastPoint) { heartContext.moveTo(heartLastPoint.x, heartLastPoint.y); heartContext.lineTo(point.x, point.y); } else { heartContext.moveTo(point.x, point.y); heartContext.lineTo(point.x, point.y); } heartContext.stroke(); heartContext.globalCompositeOperation = 'source-over'; heartLastPoint = point; const data = heartContext.getImageData(0, 0, heartCanvas.width, heartCanvas.height).data; let clearPixels = 0; for (let index = 3; index < data.length; index += 4) if (data[index] < 40) clearPixels += 1; if (clearPixels / (heartCanvas.width * heartCanvas.height) > .28) { heartCanvas.classList.add('revealed'); heartCanvas.parentElement.classList.add('revealed'); if ([...document.querySelectorAll('[data-heart-scratch]')].every(heart => heart.classList.contains('revealed'))) startCountdown(); } }
             function stopHeart() { heartDrawing = false; heartLastPoint = null; }
             resizeHeart(); heartCanvas._resizeHeart = resizeHeart; heartCanvas.addEventListener('pointerdown', event => { event.preventDefault(); heartDrawing = true; heartLastPoint = null; heartCanvas.setPointerCapture(event.pointerId); scratchHeart(event); }); heartCanvas.addEventListener('pointermove', scratchHeart); heartCanvas.addEventListener('pointerup', stopHeart); heartCanvas.addEventListener('pointerleave', stopHeart); heartCanvas.addEventListener('pointercancel', stopHeart);
         });
@@ -1781,7 +1781,7 @@
             let fallbackDrawing = false;
             let fallbackPoint = null;
             const fallbackPosition = event => { const rect = heartCanvas.getBoundingClientRect(); const touch = event.touches?.[0] || event; return { x: touch.clientX - rect.left, y: touch.clientY - rect.top }; };
-            const fallbackErase = event => { if (!fallbackDrawing) return; const point = fallbackPosition(event); const fallbackContext = heartCanvas.getContext('2d'); fallbackContext.globalCompositeOperation = 'destination-out'; fallbackContext.lineCap = 'round'; fallbackContext.lineJoin = 'round'; fallbackContext.lineWidth = 18; fallbackContext.beginPath(); if (fallbackPoint) { fallbackContext.moveTo(fallbackPoint.x, fallbackPoint.y); fallbackContext.lineTo(point.x, point.y); } else { fallbackContext.moveTo(point.x, point.y); fallbackContext.lineTo(point.x, point.y); } fallbackContext.stroke(); fallbackContext.globalCompositeOperation = 'source-over'; fallbackPoint = point; const data = fallbackContext.getImageData(0, 0, heartCanvas.width, heartCanvas.height).data; let clearPixels = 0; for (let index = 3; index < data.length; index += 4) if (data[index] < 40) clearPixels += 1; if (clearPixels / (heartCanvas.width * heartCanvas.height) > .22) { heartCanvas.classList.add('revealed'); if ([...document.querySelectorAll('[data-heart-scratch]')].every(heart => heart.classList.contains('revealed'))) startCountdown(); } };
+            const fallbackErase = event => { if (!fallbackDrawing) return; const point = fallbackPosition(event); const fallbackContext = heartCanvas.getContext('2d'); fallbackContext.globalCompositeOperation = 'destination-out'; fallbackContext.lineCap = 'round'; fallbackContext.lineJoin = 'round'; fallbackContext.lineWidth = 18; fallbackContext.beginPath(); if (fallbackPoint) { fallbackContext.moveTo(fallbackPoint.x, fallbackPoint.y); fallbackContext.lineTo(point.x, point.y); } else { fallbackContext.moveTo(point.x, point.y); fallbackContext.lineTo(point.x, point.y); } fallbackContext.stroke(); fallbackContext.globalCompositeOperation = 'source-over'; fallbackPoint = point; const data = fallbackContext.getImageData(0, 0, heartCanvas.width, heartCanvas.height).data; let clearPixels = 0; for (let index = 3; index < data.length; index += 4) if (data[index] < 40) clearPixels += 1; if (clearPixels / (heartCanvas.width * heartCanvas.height) > .22) { heartCanvas.classList.add('revealed'); heartCanvas.parentElement.classList.add('revealed'); if ([...document.querySelectorAll('[data-heart-scratch]')].every(heart => heart.classList.contains('revealed'))) startCountdown(); } };
             const fallbackStart = event => { event.preventDefault(); fallbackDrawing = true; fallbackPoint = null; fallbackErase(event); };
             const fallbackStop = () => { fallbackDrawing = false; fallbackPoint = null; };
             heartCanvas.addEventListener('mousedown', fallbackStart); heartCanvas.addEventListener('mousemove', fallbackErase); heartCanvas.addEventListener('touchstart', fallbackStart, { passive: false }); heartCanvas.addEventListener('touchmove', fallbackErase, { passive: false }); addEventListener('mouseup', fallbackStop); addEventListener('touchend', fallbackStop);
@@ -3131,7 +3131,7 @@
             object-fit: cover;
             object-position: center;
             cursor: pointer;
-            transition: transform 1.2s cubic-bezier(.2, .8, .2, 1), opacity .8s ease, filter .8s ease;
+            transition: transform 3s cubic-bezier(.2, .8, .2, 1), opacity 2.6s ease, filter 2.6s ease;
             filter: drop-shadow(0 20px 25px rgba(100, 73, 39, .24));
         }
 
@@ -3166,6 +3166,7 @@
             right: 13% !important;
             bottom: 0 !important;
             height: 78% !important;
+            transition-duration: 3s
         }
 
         .envelope-stage.opened .envelope-cover {
@@ -3328,8 +3329,8 @@
         }
 
         .heart-scratch {
-            width: 58px;
-            height: 52px;
+            width: 66px;
+            height: 60px;
             position: relative;
             display: grid;
             place-items: center;
@@ -3342,7 +3343,23 @@
 
         .heart-scratch strong {
             position: relative;
-            z-index: 1
+            z-index: 11;
+            color: #fffdf4;
+            font-size: 17px;
+            line-height: 1;
+            text-shadow: 0 1px 4px rgba(91, 55, 16, .6);
+            opacity: 0;
+            transition: opacity .35s ease;
+            pointer-events: none
+        }
+
+        .heart-scratch.revealed strong {
+            opacity: 1
+        }
+
+        .heart-scratch.revealed canvas {
+            opacity: 0;
+            pointer-events: none
         }
 
         .heart-scratch canvas {
@@ -3354,6 +3371,8 @@
             cursor: crosshair;
             touch-action: none;
             pointer-events: auto;
+            opacity: .86;
+            transition: opacity .35s ease;
             background: linear-gradient(135deg, #b58a42, #e4bd69 48%, #956725)
         }
 
@@ -3363,8 +3382,8 @@
             }
 
             .heart-scratch {
-                width: 54px;
-                height: 49px
+                width: 62px;
+                height: 56px
             }
         }
 
