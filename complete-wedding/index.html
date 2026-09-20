@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#173f3d">
-    <title>Faizan &amp; Zia | Complete Wedding Celebrations | Sunnatul Nikah</title>
+    <title>Faizan &amp; Zia | Wedding Celebrations</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
@@ -570,6 +570,89 @@
             display: none;
         }
 
+        .reveal-head {
+            position: relative;
+            max-width: 980px;
+            padding-top: 80px;
+            background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, .82), transparent 58%), repeating-radial-gradient(circle at 12% 22%, transparent 0 24px, rgba(177, 138, 74, .12) 25px 27px, transparent 28px 58px);
+        }
+
+        .reveal-head h2 {
+            color: var(--green);
+            font: 600 clamp(3rem, 9vw, 6rem)/.88 'Playfair Display', serif;
+            margin: 22px 0;
+        }
+
+        .reveal-head>p {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+            font: 400 clamp(1.1rem, 2.5vw, 1.45rem)/1.45 'Playfair Display', serif;
+        }
+
+        .signature-panel {
+            max-width: 550px;
+            margin: 36px auto 0;
+            padding: 28px 18px;
+            border: 1px solid var(--line);
+            background: rgba(255, 253, 248, .58);
+            text-align: center;
+        }
+
+        .signature-panel img {
+            width: min(48vw, 210px);
+            height: 150px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .signature-names {
+            color: var(--green);
+            font: 600 clamp(2.3rem, 7vw, 4.4rem)/.9 'Playfair Display', serif;
+        }
+
+        .signature-names span {
+            color: var(--gold);
+            font-size: .52em;
+        }
+
+        .signature-blessing {
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-top: 12px;
+        }
+
+        .schedule-head {
+            margin: 76px auto 28px;
+            text-align: center;
+        }
+
+        .schedule-head h2 {
+            color: var(--green);
+            font: 600 clamp(2.5rem, 7vw, 4.6rem)/.9 'Playfair Display', serif;
+            margin: 14px 0 24px;
+        }
+
+        .schedule-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .schedule-nav a {
+            color: var(--green);
+            border-bottom: 1px solid var(--gold);
+            padding: 8px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
         .calligraphy {
             max-width: 640px;
             margin: 0 auto 22px;
@@ -771,15 +854,21 @@
     </header>
 
     <main>
-        <section class="intro" id="events">
+        <section class="intro reveal-head" id="events">
             <div class="calligraphy">
                 <div class="arabic" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
                 <div class="translation">In the name of Allah, the Most Gracious, the Most Merciful</div>
             </div>
-            <div class="eyebrow">Save the dates</div>
-            <h2>Five moments,<br>one beautiful beginning</h2>
-            <p>Join us in the sequence below as our families come together for Faizan and Zia's complete wedding
-                celebrations.</p>
+            <h2>Our forever<br>starts here</h2>
+            <p>And one of His signs is that He created for you spouses from among yourselves<br>so that you may find
+                comfort in them.<br>And He has placed between you compassion and mercy.<br>Surely in this are signs for
+                people who reflect.<br><strong>Surah Ar-Rum - 30:21</strong></p>
+            <div class="signature-panel">
+                <img src="../assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg"
+                    alt="Faizan and Zia gold floral monogram">
+                <div class="signature-names">Faizan <span>&amp;</span> Zia</div>
+                <div class="signature-blessing">With the blessings of Allah, our journey begins</div>
+            </div>
             <div class="scratch-card">
                 <div class="eyebrow">A little reveal</div>
                 <h3>Scratch to reveal</h3>
@@ -819,66 +908,75 @@
         </section>
 
         <section class="timeline" aria-label="Wedding event schedule">
-            <article class="event-card">
+            <div class="schedule-head">
+                <div class="eyebrow">The schedule</div>
+                <h2>Five moments, one beautiful beginning</h2>
+                <nav class="schedule-nav" aria-label="Event schedule">
+                    <a href="#mayoun">Mayoun</a><a href="#golden-beginning">Golden beginning</a><a
+                        href="#sunnatul-nikah">Sunnatul Nikah</a><a href="#reception">Reception</a><a
+                        href="#walima">Walima</a>
+                </nav>
+            </div>
+            <article class="event-card" id="mayoun">
                 <div>
-                    <div class="event-number">01 · Monday</div><strong class="event-date">23 Nov</strong>
+                    <div class="event-number">01 · Sunday</div><strong class="event-date">23 Nov</strong>
                 </div>
                 <div>
                     <h3>Zia's Mayoun</h3>
-                    <p>A warm evening of colour, family and blessings.</p>
-                    <div class="event-meta"><span>7:00 PM onwards</span><span>Mayoun venue</span></div>
+                    <p>A warm evening of colour, family and blessings as we begin our journey together.</p>
+                    <div class="event-meta"><span>7:00 PM onwards</span><span>Zia's Mayoun venue</span></div>
                 </div>
                 <div class="event-actions"><a class="button" target="_blank" rel="noopener"
                         href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw">Get directions</a><a class="button alt"
                         href="calendar/zia-mayoun.ics">Add to calendar</a></div>
             </article>
-            <article class="event-card">
+            <article class="event-card" id="golden-beginning">
                 <div>
-                    <div class="event-number">02 · Tuesday</div><strong class="event-date">24 Nov</strong>
+                    <div class="event-number">02 · Monday</div><strong class="event-date">24 Nov</strong>
                 </div>
                 <div>
                     <h3>Faizan's Golden Beginning</h3>
-                    <p>An evening celebrating the groom's side and the start of this blessed journey.</p>
+                    <p>An evening of joy and celebration on the groom's side, marking an auspicious start.</p>
                     <div class="event-meta"><span>7:00 PM onwards</span><span>Khatri Jamat Hall</span></div>
                 </div>
                 <div class="event-actions"><a class="button" target="_blank" rel="noopener"
                         href="https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw">Get directions</a><a class="button alt"
                         href="calendar/faizan-golden-beginning.ics">Add to calendar</a></div>
             </article>
-            <article class="event-card">
+            <article class="event-card" id="sunnatul-nikah">
                 <div>
-                    <div class="event-number">03 · Friday</div><strong class="event-date">27 Nov</strong>
+                    <div class="event-number">03 · Thursday</div><strong class="event-date">27 Nov</strong>
                 </div>
                 <div>
                     <h3>Sunnatul Nikah <span>(Qubool Sach Mei Hain)</span></h3>
-                    <p>The sacred nikah ceremony, held in the presence of family and loved ones.</p>
+                    <p>The sacred nikah ceremony, with duas, blessings and prayers for a blessed life together.</p>
                     <div class="event-meta"><span>11:00 AM</span><span>Same venue as Zia's Mayoun</span></div>
                 </div>
                 <div class="event-actions"><a class="button" target="_blank" rel="noopener"
                         href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw">Get directions</a><a class="button alt"
                         href="calendar/sunnatul-nikah.ics">Add to calendar</a></div>
             </article>
-            <article class="event-card">
+            <article class="event-card" id="reception">
                 <div>
-                    <div class="event-number">04 · Saturday</div><strong class="event-date">28 Nov</strong>
+                    <div class="event-number">04 · Friday</div><strong class="event-date">28 Nov</strong>
                 </div>
                 <div>
                     <h3>Nikah Reception</h3>
-                    <p>Come celebrate the newly joined families with an evening of joy.</p>
-                    <div class="event-meta"><span>7:00 PM onwards</span><span>Reception venue</span></div>
+                    <p>An evening of togetherness, celebration and joy as our families unite.</p>
+                    <div class="event-meta"><span>7:00 PM onwards</span><span>Nikah Reception venue</span></div>
                 </div>
                 <div class="event-actions"><a class="button" target="_blank" rel="noopener"
                         href="https://share.google/nQW9voFfiYrEdnkhl">Get directions</a><a class="button alt"
                         href="calendar/nikah-reception.ics">Add to calendar</a></div>
             </article>
-            <article class="event-card">
+            <article class="event-card" id="walima">
                 <div>
-                    <div class="event-number">05 · Monday</div><strong class="event-date">30 Nov</strong>
+                    <div class="event-number">05 · Sunday</div><strong class="event-date">30 Nov</strong>
                 </div>
                 <div>
                     <h3>Dawate-E-Walima</h3>
-                    <p>We would be honoured to share this celebratory meal and our duas with you.</p>
-                    <div class="event-meta"><span>7:00 PM onwards</span><span>Walima venue</span></div>
+                    <p>We would be honoured to share a blessed evening of food, love and duas with you.</p>
+                    <div class="event-meta"><span>7:00 PM onwards</span><span>Dawate-E-Walima venue</span></div>
                 </div>
                 <div class="event-actions"><a class="button" target="_blank" rel="noopener"
                         href="https://maps.app.goo.gl/YJGTZ7cUVZWtGrRZA?g_st=iw">Get directions</a><a class="button alt"
