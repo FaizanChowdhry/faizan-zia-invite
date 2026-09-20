@@ -1578,6 +1578,32 @@
             color: #e4c78c
         }
 
+        .footer-names {
+            display: flex !important;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            color: #3b2a20 !important;
+            line-height: .86 !important;
+            margin: 18px 0 22px !important;
+            font-size: clamp(3.8rem, 9vw, 5.2rem) !important;
+            text-shadow: 0 3px 10px rgba(85, 55, 24, .12)
+        }
+
+        .footer-names span {
+            display: block !important;
+            color: #3b2a20 !important;
+            line-height: 1 !important;
+            margin: 0 !important
+        }
+
+        .footer-names span:nth-child(2) {
+            color: #1f1b17 !important;
+            font-size: .38em;
+            line-height: .8 !important;
+            margin: 4px 0 !important
+        }
+
         .envelope-stage {
             width: min(82vw, 390px);
             aspect-ratio: .65;
@@ -1747,7 +1773,7 @@
                 <div class="eyebrow">With love</div>
                 <img class="footer-logo" src="assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg"
                     alt="Faizan and Zia gold floral monogram">
-                <h2>Faizan<br><span>&amp;</span><br>Zia</h2>
+                <h2 class="footer-names"><span>Faizan</span><span>&amp;</span><span>Zia</span></h2>
                 <p>We look forward to celebrating with you</p>
             </footer>
         </section>
