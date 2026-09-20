@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Faizan and Zia//Complete Wedding//EN
+BEGIN:VEVENT
+UID:sunnatul-nikah-20261127@faizan-zia-invite
+DTSTAMP:20260920T000000Z
+DTSTART:20261127T110000
+DTEND:20261127T130000
+SUMMARY:Sunnatul Nikah (Qubool Sach Mei Hain) | Faizan & Zia
+LOCATION:Same venue as Zia's Mayoun
+URL:https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw
+DESCRIPTION:Sunnatul Nikah (Qubool Sach Mei Hain). Same venue as Zia's Mayoun. Google Maps: https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Faizan and Zia//Complete Wedding//EN
+BEGIN:VEVENT
+UID:faizan-golden-beginning-20261124@faizan-zia-invite
+DTSTAMP:20260920T000000Z
+DTSTART:20261124T190000
+DTEND:20261124T220000
+SUMMARY:Faizan's Golden Beginning | Faizan & Zia
+LOCATION:Khatri Jamat Hall
+URL:https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw
+DESCRIPTION:Faizan's Golden Beginning. Khatri Jamat Hall. Google Maps: https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw
+END:VEVENT
+END:VCALENDAR

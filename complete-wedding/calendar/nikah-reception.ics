@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Faizan and Zia//Complete Wedding//EN
+BEGIN:VEVENT
+UID:nikah-reception-20261128@faizan-zia-invite
+DTSTAMP:20260920T000000Z
+DTSTART:20261128T190000
+DTEND:20261128T220000
+SUMMARY:Nikah Reception | Faizan & Zia
+LOCATION:Reception venue
+URL:https://share.google/nQW9voFfiYrEdnkhl
+DESCRIPTION:Nikah Reception. Google Maps: https://share.google/nQW9voFfiYrEdnkhl
+END:VEVENT
+END:VCALENDAR

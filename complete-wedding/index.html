@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173f3d">
+    <title>Faizan &amp; Zia | Complete Wedding Celebrations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+        :root {
+            --ink: #18322f;
+            --muted: #66736d;
+            --green: #173f3d;
+            --green-light: #2f6b60;
+            --gold: #b8893c;
+            --gold-light: #ead5a5;
+            --paper: #fffdf8;
+            --sand: #f4eee3;
+            --line: #decfb0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--sand);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .hero {
+            min-height: 88vh;
+            display: grid;
+            place-items: center;
+            padding: 56px 22px 80px;
+            text-align: center;
+            color: #fffdf4;
+            background:
+                linear-gradient(145deg, rgba(13, 47, 44, .92), rgba(23, 63, 61, .78)),
+                url('../assets/WhatsApp%20Image%202026-09-19%20at%203.36.58%20PM.jpeg') center / cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 22px;
+            border: 1px solid rgba(234, 213, 165, .55);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 760px;
+            position: relative;
+            z-index: 1;
+            animation: rise .9s ease both;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+        }
+
+        .hero .eyebrow {
+            color: var(--gold-light);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: clamp(3.2rem, 10vw, 7.4rem);
+            line-height: .96;
+            margin: 22px 0;
+        }
+
+        h1 span {
+            display: block;
+            color: var(--gold-light);
+            font-size: .5em;
+            margin: 14px 0;
+        }
+
+        .hero p {
+            max-width: 510px;
+            margin: 0 auto;
+            color: #f1eadb;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .hero-link {
+            display: inline-block;
+            margin-top: 32px;
+            padding: 13px 20px;
+            border: 1px solid var(--gold-light);
+            color: #fffdf4;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        main {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 76px 22px 96px;
+        }
+
+        .intro {
+            max-width: 650px;
+            margin: 0 auto 56px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            color: var(--green);
+            font-size: clamp(2.4rem, 6vw, 4.6rem);
+            line-height: 1;
+            margin: 16px 0;
+        }
+
+        .intro p {
+            color: var(--muted);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 22px;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 118px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 24px;
+            padding: 28px;
+            background: rgba(255, 253, 248, .88);
+            border: 1px solid var(--line);
+            box-shadow: 0 14px 30px rgba(54, 62, 52, .07);
+            animation: rise .65s ease both;
+        }
+
+        .event-card:nth-child(2) {
+            animation-delay: .08s;
+        }
+
+        .event-card:nth-child(3) {
+            animation-delay: .16s;
+        }
+
+        .event-card:nth-child(4) {
+            animation-delay: .24s;
+        }
+
+        .event-card:nth-child(5) {
+            animation-delay: .32s;
+        }
+
+        .event-number {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+        .event-date {
+            display: block;
+            color: var(--green);
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            line-height: 1;
+            margin-top: 9px;
+        }
+
+        .event-card h3 {
+            color: var(--green);
+            font-size: clamp(1.45rem, 3vw, 2.1rem);
+            line-height: 1.1;
+            margin: 0 0 9px;
+        }
+
+        .event-card p {
+            color: var(--muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            margin-top: 13px;
+            color: var(--green-light);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .event-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 144px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 15px;
+            border: 1px solid var(--gold);
+            color: #fffdf4;
+            background: var(--green);
+            text-align: center;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+        }
+
+        .button.alt {
+            color: var(--green);
+            background: transparent;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 58px;
+        }
+
+        .detail-panel {
+            padding: 30px;
+            background: var(--green);
+            color: #f8f1e4;
+        }
+
+        .detail-panel h2 {
+            color: var(--gold-light);
+            font-size: 2rem;
+            margin: 12px 0;
+        }
+
+        .detail-panel p {
+            color: #d8e0d8;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .detail-panel a {
+            color: var(--gold-light);
+        }
+
+        .rsvp {
+            max-width: 600px;
+            margin: 58px auto 0;
+            padding: 32px;
+            background: rgba(255, 253, 248, .88);
+            border: 1px solid var(--line);
+        }
+
+        .rsvp h2 {
+            color: var(--green);
+            font-size: 2.5rem;
+            margin: 10px 0 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 12px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 2px;
+            border: 0;
+            border-bottom: 1px solid var(--line);
+            background: transparent;
+            color: var(--ink);
+            font: inherit;
+            outline: none;
+        }
+
+        form .button {
+            border: 0;
+            cursor: pointer;
+        }
+
+        .success {
+            color: var(--green-light);
+            font-size: 13px;
+        }
+
+        footer {
+            padding: 48px 22px;
+            background: var(--green);
+            color: #f8f1e4;
+            text-align: center;
+        }
+
+        footer h2 {
+            color: var(--gold-light);
+            font-size: 2.4rem;
+            margin: 10px 0;
+        }
+
+        footer p {
+            color: #d8e0d8;
+            font-size: 13px;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .hero {
+                min-height: 78vh;
+            }
+
+            .event-card {
+                grid-template-columns: 1fr;
+                gap: 17px;
+                padding: 23px;
+            }
+
+            .event-actions {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .event-actions .button {
+                flex: 1 1 140px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="eyebrow">The complete wedding celebrations</div>
+            <h1>Faizan <span>&amp;</span> Zia</h1>
+            <p>With the blessings of Allah, we invite you to celebrate every meaningful moment of our beginning
+                together.</p>
+            <a class="hero-link" href="#events">View all events</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro" id="events">
+            <div class="eyebrow">Save the dates</div>
+            <h2>Five moments,<br>one beautiful beginning</h2>
+            <p>Join us in the sequence below as our families come together for Faizan and Zia's complete wedding
+                celebrations.</p>
+        </section>
+
+        <section class="timeline" aria-label="Wedding event schedule">
+            <article class="event-card">
+                <div>
+                    <div class="event-number">01 · Monday</div><strong class="event-date">23 Nov</strong>
+                </div>
+                <div>
+                    <h3>Zia's Mayoun</h3>
+                    <p>A warm evening of colour, family and blessings.</p>
+                    <div class="event-meta"><span>7:00 PM onwards</span><span>Mayoun venue</span></div>
+                </div>
+                <div class="event-actions"><a class="button" target="_blank" rel="noopener"
+                        href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw">Get directions</a><a class="button alt"
+                        href="calendar/zia-mayoun.ics">Add to calendar</a></div>
+            </article>
+            <article class="event-card">
+                <div>
+                    <div class="event-number">02 · Tuesday</div><strong class="event-date">24 Nov</strong>
+                </div>
+                <div>
+                    <h3>Faizan's Golden Beginning</h3>
+                    <p>An evening celebrating the groom's side and the start of this blessed journey.</p>
+                    <div class="event-meta"><span>7:00 PM onwards</span><span>Khatri Jamat Hall</span></div>
+                </div>
+                <div class="event-actions"><a class="button" target="_blank" rel="noopener"
+                        href="https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw">Get directions</a><a class="button alt"
+                        href="calendar/faizan-golden-beginning.ics">Add to calendar</a></div>
+            </article>
+            <article class="event-card">
+                <div>
+                    <div class="event-number">03 · Friday</div><strong class="event-date">27 Nov</strong>
+                </div>
+                <div>
+                    <h3>Sunnatul Nikah <span>(Qubool Sach Mei Hain)</span></h3>
+                    <p>The sacred nikah ceremony, held in the presence of family and loved ones.</p>
+                    <div class="event-meta"><span>11:00 AM</span><span>Same venue as Zia's Mayoun</span></div>
+                </div>
+                <div class="event-actions"><a class="button" target="_blank" rel="noopener"
+                        href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw">Get directions</a><a class="button alt"
+                        href="calendar/sunnatul-nikah.ics">Add to calendar</a></div>
+            </article>
+            <article class="event-card">
+                <div>
+                    <div class="event-number">04 · Saturday</div><strong class="event-date">28 Nov</strong>
+                </div>
+                <div>
+                    <h3>Nikah Reception</h3>
+                    <p>Come celebrate the newly joined families with an evening of joy.</p>
+                    <div class="event-meta"><span>7:00 PM onwards</span><span>Reception venue</span></div>
+                </div>
+                <div class="event-actions"><a class="button" target="_blank" rel="noopener"
+                        href="https://share.google/nQW9voFfiYrEdnkhl">Get directions</a><a class="button alt"
+                        href="calendar/nikah-reception.ics">Add to calendar</a></div>
+            </article>
+            <article class="event-card">
+                <div>
+                    <div class="event-number">05 · Monday</div><strong class="event-date">30 Nov</strong>
+                </div>
+                <div>
+                    <h3>Dawate-E-Walima</h3>
+                    <p>We would be honoured to share this celebratory meal and our duas with you.</p>
+                    <div class="event-meta"><span>7:00 PM onwards</span><span>Walima venue</span></div>
+                </div>
+                <div class="event-actions"><a class="button" target="_blank" rel="noopener"
+                        href="https://maps.app.goo.gl/YJGTZ7cUVZWtGrRZA?g_st=iw">Get directions</a><a class="button alt"
+                        href="calendar/dawate-e-walima.ics">Add to calendar</a></div>
+            </article>
+        </section>
+
+        <section class="details">
+            <div class="detail-panel">
+                <div class="eyebrow">For every gathering</div>
+                <h2>Your presence is our greatest gift.</h2>
+                <p>Your duas, blessings and company mean more to us than anything else. We look forward to welcoming you
+                    across all five celebrations.</p>
+            </div>
+            <div class="detail-panel">
+                <div class="eyebrow">A note for guests</div>
+                <h2>All directions in one place.</h2>
+                <p>Use the individual <strong>Get directions</strong> button for each event. Venue details are linked
+                    directly to the location shared by the families.</p>
+            </div>
+        </section>
+
+        <section class="rsvp">
+            <div class="eyebrow">Let us know</div>
+            <h2>RSVP for the celebrations</h2>
+            <form id="rsvp">
+                <input name="guestName" required placeholder="Your name" autocomplete="name">
+                <select name="attendance">
+                    <option>Joyfully attending</option>
+                    <option>Unable to attend</option>
+                </select>
+                <textarea name="message" rows="3" placeholder="A note for the couple (optional)"></textarea>
+                <button class="button" type="submit">Send response</button>
+                <div class="success" id="success" hidden>Thank you. Your response has been saved on this device.</div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="eyebrow">With love and duas</div>
+        <h2>Faizan &amp; Zia</h2>
+        <p>We look forward to celebrating with you.</p>
+    </footer>
+    <script>
+        document.querySelector('#rsvp').addEventListener('submit', event => {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const values = Object.fromEntries(new FormData(form));
+            localStorage.setItem('faizan-zia-complete-rsvp', JSON.stringify(values));
+            document.querySelector('#success').hidden = false;
+            form.reset();
+        });
+    </script>
+</body>
+
+</html>
