@@ -18,8 +18,14 @@
             --ink: #2d2924
         }
 
-        * { box-sizing: border-box }
-        html { scroll-behavior: smooth }
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
         body {
             margin: 0;
             background: linear-gradient(180deg, #f7f2ea 0%, #f3efe7 100%);
@@ -242,21 +248,49 @@
             animation: pulse 2s infinite
         }
 
-        .opened .flap { transform: rotateX(180deg) }
-        .opened .seal { transform: translate(-50%, -50%) scale(.2); opacity: 0 }
-        .opened .letter { transform: translateY(-26%) }
+        .opened .flap {
+            transform: rotateX(180deg)
+        }
 
-        .open-page .hero { min-height: 72svh }
-        .open-page .content { display: block }
-        .content { display: none; background: linear-gradient(180deg, #fffdf8 0%, #f5efe5 100%); position: relative }
+        .opened .seal {
+            transform: translate(-50%, -50%) scale(.2);
+            opacity: 0
+        }
 
-        .section { max-width: 980px; margin: auto; padding: 92px 24px }
+        .opened .letter {
+            transform: translateY(-26%)
+        }
 
-        .reveal-head { text-align: center; color: var(--green) }
+        .open-page .hero {
+            min-height: 72svh
+        }
+
+        .open-page .content {
+            display: block
+        }
+
+        .content {
+            display: none;
+            background: linear-gradient(180deg, #fffdf8 0%, #f5efe5 100%);
+            position: relative
+        }
+
+        .section {
+            max-width: 980px;
+            margin: auto;
+            padding: 92px 24px
+        }
+
+        .reveal-head {
+            text-align: center;
+            color: var(--green)
+        }
+
         .reveal-head h2 {
             font: 500 clamp(3.2rem, 10vw, 6rem)/.8 'Cormorant Garamond', serif;
             margin: 19px 0
         }
+
         .reveal-head p {
             font: 400 20px/1.3 'Cormorant Garamond', serif;
             max-width: 510px;
@@ -273,11 +307,13 @@
             text-align: center;
             color: var(--green)
         }
+
         .scratch-card h3 {
             font: 500 36px 'Cormorant Garamond', serif;
             margin: 0 0 6px;
             color: #946d39
         }
+
         .scratch-card p {
             font-size: 11px;
             letter-spacing: .14em;
@@ -295,17 +331,62 @@
             background: linear-gradient(180deg, #fffdf8, #f4ead7)
         }
 
-        .countdown { height: 100%; display: grid; place-items: center; color: var(--green) }
-        .timer { display: flex; justify-content: center; gap: 12px }
-        .unit strong { display: block; font: 500 38px 'Cormorant Garamond', serif }
-        .unit span { display: block; font: 600 8px Montserrat; letter-spacing: .12em; text-transform: uppercase }
-        .scratch-canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; touch-action: none }
-        .scratch-label {
-            position: absolute; inset: 0; display: grid; place-items: center; z-index: 2; pointer-events: none;
-            color: #fff; font: 600 10px Montserrat; letter-spacing: .18em; text-transform: uppercase; text-shadow: 0 1px 3px #000
+        .countdown {
+            height: 100%;
+            display: grid;
+            place-items: center;
+            color: var(--green)
         }
-        .scratched .scratch-label { opacity: 0 }
-        .scratched .scratch-canvas { opacity: 0; transition: opacity .8s }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 12px
+        }
+
+        .unit strong {
+            display: block;
+            font: 500 38px 'Cormorant Garamond', serif
+        }
+
+        .unit span {
+            display: block;
+            font: 600 8px Montserrat;
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        .scratch-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            touch-action: none
+        }
+
+        .scratch-label {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            z-index: 2;
+            pointer-events: none;
+            color: #fff;
+            font: 600 10px Montserrat;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            text-shadow: 0 1px 3px #000
+        }
+
+        .scratched .scratch-label {
+            opacity: 0
+        }
+
+        .scratched .scratch-canvas {
+            opacity: 0;
+            transition: opacity .8s
+        }
 
         .families {
             background: linear-gradient(180deg, #fffdf8 0%, #f8f3eb 100%);
@@ -315,6 +396,7 @@
             padding-block: 90px;
             box-shadow: inset 0 0 0 1px rgba(202, 168, 106, .3)
         }
+
         .families h2 {
             font: 500 clamp(3rem, 8vw, 5.5rem)/.8 'Cormorant Garamond', serif;
             margin: 18px 0 35px;
@@ -336,11 +418,13 @@
             background: linear-gradient(180deg, #fffdf9 0%, #f7f0e5 100%);
             min-height: 180px
         }
+
         .family h3 {
             font: 500 30px 'Cormorant Garamond', serif;
             margin: 12px;
             color: #8c5e2a
         }
+
         .family p {
             font: 400 15px/1.6 'Cormorant Garamond', serif;
             margin: 0;
@@ -354,10 +438,12 @@
             max-width: none;
             box-shadow: inset 0 0 0 1px rgba(202, 168, 106, .2)
         }
+
         .event h2 {
             font: 500 clamp(3rem, 9vw, 5.5rem) 'Cormorant Garamond', serif;
             margin: 0 0 28px
         }
+
         .event-grid {
             max-width: 960px;
             margin: auto;
@@ -368,19 +454,33 @@
             border-bottom: 1px solid #caa86a99;
             background: rgba(255, 255, 255, .24)
         }
+
         .event-item {
             padding: 25px 12px;
             border-right: 1px solid #caa86a99;
-            background: rgba(255,255,255,.08)
+            background: rgba(255, 255, 255, .08)
         }
-        .event-item:last-child { border-right: 0 }
+
+        .event-item:last-child {
+            border-right: 0
+        }
+
         .event-item strong {
             display: block;
             font: 500 32px 'Cormorant Garamond', serif;
             color: var(--rose)
         }
-        .event-item span { font: 600 9px Montserrat; letter-spacing: .15em; text-transform: uppercase }
-        .address { margin: 35px auto 0; font: 16px/1.7 'Cormorant Garamond', serif }
+
+        .event-item span {
+            font: 600 9px Montserrat;
+            letter-spacing: .15em;
+            text-transform: uppercase
+        }
+
+        .address {
+            margin: 35px auto 0;
+            font: 16px/1.7 'Cormorant Garamond', serif
+        }
 
         .button {
             display: inline-block;
@@ -395,6 +495,7 @@
             cursor: pointer;
             box-shadow: 0 14px 24px rgba(171, 125, 68, .18)
         }
+
         .actions {
             display: flex;
             justify-content: center;
@@ -402,6 +503,7 @@
             flex-wrap: wrap;
             margin-top: 25px
         }
+
         .button.alt {
             background: transparent;
             color: var(--green);
@@ -417,9 +519,20 @@
             padding: 26px 22px 18px;
             box-shadow: 0 18px 35px rgba(109, 84, 55, .08)
         }
-        .rsvp h3 { text-align: center; font: 500 50px 'Cormorant Garamond', serif }
-        .rsvp form { display: grid; gap: 11px }
-        .rsvp input, .rsvp select, .rsvp textarea {
+
+        .rsvp h3 {
+            text-align: center;
+            font: 500 50px 'Cormorant Garamond', serif
+        }
+
+        .rsvp form {
+            display: grid;
+            gap: 11px
+        }
+
+        .rsvp input,
+        .rsvp select,
+        .rsvp textarea {
             width: 100%;
             border: 0;
             border-bottom: 1px solid #b6905866;
@@ -428,7 +541,12 @@
             font: 13px Montserrat;
             outline: 0
         }
-        .success { text-align: center; color: var(--green); font-size: 12px }
+
+        .success {
+            text-align: center;
+            color: var(--green);
+            font-size: 12px
+        }
 
         .footer {
             background: linear-gradient(180deg, #201a17 0%, #0f1a1c 100%);
@@ -437,11 +555,17 @@
             padding: 90px 24px;
             box-shadow: inset 0 0 0 1px rgba(201, 167, 107, .25)
         }
+
         .footer h2 {
             font: 500 65px/.75 'Cormorant Garamond', serif;
             margin: 18px
         }
-        .footer h2 span { color: var(--gold); font-size: .6em }
+
+        .footer h2 span {
+            color: var(--gold);
+            font-size: .6em
+        }
+
         .footer p {
             font: 600 9px Montserrat;
             letter-spacing: .2em;
@@ -449,17 +573,47 @@
             color: var(--gold)
         }
 
-        @keyframes pulse { 50% { opacity: .5; transform: translateY(4px) } }
+        @keyframes pulse {
+            50% {
+                opacity: .5;
+                transform: translateY(4px)
+            }
+        }
 
-        @media(max-width:620px){
-            .hero:after { font-size: 16px }
-            .hero-copy { top: 14% }
-            .envelope-stage { margin-top: 155px }
-            .family-grid, .event-grid { grid-template-columns: 1fr }
-            .family { min-height: auto }
-            .event-item { border-right: 0; border-bottom: 1px solid #caa86a99 }
-            .event-item:last-child { border-bottom: 0 }
-            .open-page .hero { min-height: 68svh }
+        @media(max-width:620px) {
+            .hero:after {
+                font-size: 16px
+            }
+
+            .hero-copy {
+                top: 14%
+            }
+
+            .envelope-stage {
+                margin-top: 155px
+            }
+
+            .family-grid,
+            .event-grid {
+                grid-template-columns: 1fr
+            }
+
+            .family {
+                min-height: auto
+            }
+
+            .event-item {
+                border-right: 0;
+                border-bottom: 1px solid #caa86a99
+            }
+
+            .event-item:last-child {
+                border-bottom: 0
+            }
+
+            .open-page .hero {
+                min-height: 68svh
+            }
         }
     </style>
 </head>
@@ -496,7 +650,9 @@
             <section class="section reveal-head" id="events">
                 <div class="eyebrow">In the name of Allah</div>
                 <h2>Our forever<br>starts here</h2>
-                <p>And one of His signs is that He created for you spouses from among yourselves so that you may find comfort in them. And He has placed between you compassion and mercy. Surely in this are signs for people who reflect. Surah Ar-Rum - 30:21</p>
+                <p>And one of His signs is that He created for you spouses from among yourselves so that you may find
+                    comfort in them. And He has placed between you compassion and mercy. Surely in this are signs for
+                    people who reflect. Surah Ar-Rum - 30:21</p>
             </section>
 
             <section class="families">
@@ -506,12 +662,14 @@
                     <div class="family">
                         <div class="eyebrow">Groom's family</div>
                         <h3>Faizan Ahmed Chowdhry</h3>
-                        <p>Son of<br><strong>Shamim Ahmed Chowdhry</strong><br>&amp; <strong>Razia Bano Chowdhry</strong></p>
+                        <p>Son of<br><strong>Shamim Ahmed Chowdhry</strong><br>&amp; <strong>Razia Bano
+                                Chowdhry</strong></p>
                     </div>
                     <div class="family">
                         <div class="eyebrow">Bride's family</div>
                         <h3>Zia Sayed</h3>
-                        <p>Daughter of<br><strong>Abdul Razzak Sayed</strong><br>&amp; <strong>Farhana Sayed</strong></p>
+                        <p>Daughter of<br><strong>Abdul Razzak Sayed</strong><br>&amp; <strong>Farhana Sayed</strong>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -528,7 +686,7 @@
                     <div class="event-item">
                         <div class="eyebrow">02</div>
                         <strong>24 Nov</strong>
-                        <span>Golden Beginning</span>
+                        <span>Faizan's Golden Beginning</span>
                     </div>
                     <div class="event-item">
                         <div class="eyebrow">03</div>
@@ -547,17 +705,31 @@
                     </div>
                 </div>
                 <div class="address">
-                    <strong>Zia's Mayoun:</strong> 23 Nov 2026 | 7:00 PM onwards | <a href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw" target="_blank" rel="noopener">View map</a><br>
-                    <strong>Faizan's Golden Beginning:</strong> 24 Nov 2026 | 7:00 PM onwards | <a href="https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw" target="_blank" rel="noopener">View map</a><br>
-                    <strong>Sunnatul Nikah (Qubool Sach Mei Hain):</strong> 27 Nov 2026 | 11:00 AM | same venue as Zia's Mayoun<br>
-                    <strong>Nikah Reception:</strong> 28 Nov 2026 | 7:00 PM onwards | <a href="https://share.google/nQW9voFfiYrEdnkhl" target="_blank" rel="noopener">View map</a><br>
-                    <strong>Dawate-E-Walima:</strong> 30 Nov 2026 | 7:00 PM onwards | <a href="https://maps.app.goo.gl/YJGTZ7cUVZWtGrRZA?g_st=iw" target="_blank" rel="noopener">View map</a>
+                    <strong>1. Zia's Mayoun:</strong> 23 Nov 2026 | 7:00 PM onwards | <a
+                        href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw" target="_blank" rel="noopener">View
+                        map</a><br>
+                    <strong>2. Faizan's Golden Beginning:</strong> 24 Nov 2026 | 7:00 PM onwards | <a
+                        href="https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw" target="_blank" rel="noopener">View
+                        map</a><br>
+                    <strong>3. Sunnatul Nikah (Qubool Sach Mei Hain):</strong> 27 Nov 2026 | 11:00 AM | same venue as
+                    Zia's Mayoun<br>
+                    <strong>4. Nikah Reception:</strong> 28 Nov 2026 | 7:00 PM onwards | <a
+                        href="https://share.google/nQW9voFfiYrEdnkhl" target="_blank" rel="noopener">View map</a><br>
+                    <strong>5. Dawate-E-Walima:</strong> 30 Nov 2026 | 7:00 PM onwards | <a
+                        href="https://maps.app.goo.gl/YJGTZ7cUVZWtGrRZA?g_st=iw" target="_blank" rel="noopener">View
+                        map</a>
                 </div>
                 <div class="actions">
-                    <a class="button" href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw" target="_blank" rel="noopener">Mayoun map</a>
-                    <a class="button" href="https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw" target="_blank" rel="noopener">Golden beginning map</a>
-                    <a class="button" href="https://share.google/nQW9voFfiYrEdnkhl" target="_blank" rel="noopener">Reception map</a>
-                    <a class="button" href="https://maps.app.goo.gl/YJGTZ7cUVZWtGrRZA?g_st=iw" target="_blank" rel="noopener">Walima map</a>
+                    <a class="button" href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw" target="_blank"
+                        rel="noopener">Mayoun map</a>
+                    <a class="button" href="https://maps.app.goo.gl/1NB8R2Pbsrb9NDya8?g_st=iw" target="_blank"
+                        rel="noopener">Golden beginning map</a>
+                    <a class="button" href="https://maps.app.goo.gl/z4M2LDzZ7RPa5shr7?g_st=iw" target="_blank"
+                        rel="noopener">Nikah venue</a>
+                    <a class="button" href="https://share.google/nQW9voFfiYrEdnkhl" target="_blank"
+                        rel="noopener">Reception map</a>
+                    <a class="button" href="https://maps.app.goo.gl/YJGTZ7cUVZWtGrRZA?g_st=iw" target="_blank"
+                        rel="noopener">Walima map</a>
                 </div>
             </section>
 
@@ -572,7 +744,8 @@
                     </select>
                     <textarea name="message" rows="3" placeholder="A note for the couple (optional)"></textarea>
                     <button class="button" type="submit">Send response</button>
-                    <div class="success" id="success" hidden>Thank you. Your response has been saved on this device.</div>
+                    <div class="success" id="success" hidden>Thank you. Your response has been saved on this device.
+                    </div>
                 </form>
             </section>
         </main>
