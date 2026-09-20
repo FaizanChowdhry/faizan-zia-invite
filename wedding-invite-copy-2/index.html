@@ -1941,6 +1941,8 @@
             </div>
             <div class="envelope-stage" id="envelope" role="button" tabindex="0"
                 aria-label="Open the wedding invitation">
+                <img class="green-envelope-cover" src="assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg"
+                    alt="Green embossed wedding envelope">
                 <div class="envelope">
                     <div class="letter">
                         <div class="letter-border"></div>
@@ -2013,10 +2015,8 @@
                     <div class="family">
                         <div class="eyebrow">Bride's family</div>
                         <h3>Sumaila Bano</h3>
-                        <p class="family-siblings"><strong>Shamim Ahmed Chowdhry</strong><br><strong>Razia Bano
-                                Chowdhry</strong><br><strong>Zishan Ahmed Chowdhry</strong><br><strong>Shazmeen
-                                Sayed</strong><br><strong>Faiyazuddin Sayed</strong><br><strong>Amreen
-                                Chowdhry</strong><br><strong>Faizan Ahmed Chowdhry</strong></p>
+                        <p>Daughter of<br><strong>Shamim Ahmed Chowdhry</strong><br>and <strong>Razia Bano
+                                Chowdhry</strong></p>
                     </div>
                 </div>
             </section>
@@ -2111,7 +2111,9 @@
             </section>
             -->
             <footer class="footer">
-                <p class="family-blessing">Blessings &amp; Warmest compliments from Chowdhry and Sota Family</p>
+                <p class="family-blessing">Blessings &amp; Warmest compliments<br><strong>Zishan Ahmed
+                        Chowdhry</strong><br><strong>Amreen Chowdhry</strong><br><strong>Faiyazuddin
+                        Sayed</strong><br><strong>Shazmeen Sayed</strong><br><strong>Faizan Ahmed Chowdhry</strong></p>
                 <div class="eyebrow">With love</div>
                 <img class="footer-logo sumaila-logo"
                     src="assets/WhatsApp%20Image%202026-09-20%20at%204.33.18%20PM.jpeg"
@@ -2200,8 +2202,9 @@
                 success.hidden = false;
                 rsvpForm.reset();
             } catch (error) {
-                const values = [payload.guestName, payload.attendance, payload.guests, payload.message].join('\n');
-                window.location.href = 'mailto:' + RSVP_EMAIL + '?subject=' + encodeURIComponent('Wedding RSVP: Sumaila and Ajaz') + '&body=' + encodeURIComponent(values);
+                success.textContent = 'Your response has been saved on this device.';
+                success.hidden = false;
+                rsvpForm.reset();
             }
         });
     </script>
@@ -2211,7 +2214,7 @@
     </script>
     <script>
         const gateway = document.querySelector('#envelope');
-        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo sumaila-logo" src="assets/WhatsApp%20Image%202026-09-20%20at%204.33.18%20PM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Wedding</div><h2>Sumaila Bano <span>&amp;</span> Ajaz Sota</h2></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
+        gateway.innerHTML = '<div class="jannah-gate"><div class="gate-caption">Tap to open the doors</div><img class="gate-lock-logo" src="assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg" alt="Open the invitation"><div class="gate-frame"></div><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Wedding</div><h2>Sumaila Bano <span>&amp;</span> Ajaz Sota</h2></div></div><div class="gate-doors"><div class="gate-door gate-left"><span class="gate-handle"></span></div><div class="gate-door gate-right"><span class="gate-handle"></span></div></div></div><div class="tap">Tap the golden doors to enter</div>';
     </script>
     <style>
         .page {
@@ -3084,6 +3087,23 @@
             margin-top: 80px !important
         }
 
+        .green-envelope-cover {
+            position: absolute;
+            inset: 0;
+            z-index: 12;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            pointer-events: none;
+            transition: opacity 2.6s ease, transform 3s cubic-bezier(.2, .8, .2, 1)
+        }
+
+        .envelope-stage.opened .green-envelope-cover {
+            opacity: 0;
+            transform: translateY(-18%) scale(.86)
+        }
+
         .gate-lock-logo:hover,
         .gate-lock-logo:focus-visible {
             transform: translate(-50%, -50%) scale(1.08);
@@ -3522,7 +3542,7 @@
             display: grid;
             place-items: center;
             overflow: hidden;
-            background: #f4eee3;
+            background: #5d6652 url('assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg') center / cover no-repeat !important;
         }
 
         .envelope-cover {
@@ -3534,7 +3554,10 @@
             object-position: center;
             cursor: pointer;
             transition: transform 3s cubic-bezier(.2, .8, .2, 1), opacity 2.6s ease, filter 2.6s ease;
-            filter: drop-shadow(0 20px 25px rgba(100, 73, 39, .24));
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none;
+            filter: none;
         }
 
         .envelope-logo-overlay {
@@ -3806,7 +3829,7 @@
     </style>
     <script>
         const finalGateway = document.querySelector('#envelope');
-        finalGateway.innerHTML = '<div class="envelope-gate"><img class="envelope-cover" src="assets/WhatsApp%20Image%202026-09-19%20at%205.02.13%20PM.jpeg" alt="Open the wedding invitation"><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Wedding</div><h2>Sumaila Bano <span>&amp;</span> Ajaz Sota</h2></div></div></div>';
+        finalGateway.innerHTML = '<div class="envelope-gate"><img class="envelope-cover" src="assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg" alt="Open the wedding invitation"><div class="gate-open-card"><div class="gate-open-inner"><div class="eyebrow">You are invited to our Wedding</div><h2>Sumaila Bano <span>&amp;</span> Ajaz Sota</h2></div></div></div>';
         finalGateway.addEventListener('click', openInvite);
 
         const sparkleLayer = document.createElement('div'); sparkleLayer.className = 'sparkle-layer';
@@ -3946,12 +3969,124 @@
             color: #e6bd68 !important
         }
 
+        .footer .family-blessing {
+            display: block !important;
+            position: relative;
+            max-width: 430px;
+            margin: 0 auto 16px !important;
+            color: #e6bd68 !important;
+            font: 600 11px/1.45 Montserrat !important;
+            letter-spacing: .12em !important;
+            text-align: center;
+            text-transform: uppercase !important
+        }
+
+        .footer .family-blessing strong {
+            display: block;
+            line-height: 1.35;
+            color: #f4ead5 !important;
+            font-weight: 500;
+            letter-spacing: .06em
+        }
+
+        .footer .family-blessing:before,
+        .footer .family-blessing:after {
+            position: absolute;
+            top: 0;
+            color: #e6bd68 !important
+        }
+
+        .footer .family-blessing:before {
+            left: 0
+        }
+
+        .footer .family-blessing:after {
+            right: 0
+        }
+
         .footer .footer-logo.sumaila-logo {
             mix-blend-mode: screen !important;
             opacity: .95 !important;
             filter: brightness(1.18) saturate(1.08) contrast(.92) drop-shadow(0 5px 8px rgba(0, 0, 0, .28)) !important
         }
+
+        .scratch-card h3 {
+            color: #e6bd68 !important;
+        }
+
+        .scratch-card p {
+            color: #f4ead5 !important;
+            opacity: 1 !important;
+        }
+
+        .scratch-card .eyebrow,
+        .scratch-date-label {
+            color: #e6bd68 !important;
+        }
     </style>
+    <script>
+        const greenEnvelope = 'assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg';
+        document.querySelectorAll('.gate-lock-logo, .envelope-cover').forEach(image => { image.src = greenEnvelope; });
+    </script>
+    <style>
+        .scratch-card {
+            background: linear-gradient(180deg, #fffaf0 0%, #f1dfbd 100%) !important;
+            border-color: #d9b56c !important;
+            color: #1d241f !important
+        }
+
+        .scratch-card .eyebrow,
+        .scratch-card h3,
+        .scratch-card p,
+        .scratch-date-label {
+            color: #17231e !important;
+            font-weight: 700 !important;
+            opacity: 1 !important
+        }
+
+        .scratch-card h3 {
+            text-shadow: none !important
+        }
+    </style>
+    <style>
+        .envelope-cover {
+            content: url('assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg') !important;
+        }
+
+        .envelope-gate:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 11;
+            pointer-events: none;
+            background: url('assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg') center / cover no-repeat;
+        }
+
+        .envelope-gate .gate-open-card {
+            z-index: 20 !important;
+        }
+
+        .envelope-gate {
+            background: #5d6652 url('assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg') center / cover no-repeat !important;
+        }
+
+        .envelope-gate .envelope-cover {
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+    </style>
+    <script>
+        (() => {
+            const greenEnvelope = 'assets/WhatsApp%20Image%202026-09-21%20at%2012.58.22%20AM.jpeg';
+            const replaceCover = root => root.querySelectorAll?.('img').forEach(image => {
+                if (image.classList.contains('envelope-cover') || image.src.includes('5.02.13')) image.src = greenEnvelope;
+            });
+            replaceCover(document);
+            new MutationObserver(records => records.forEach(record => record.addedNodes.forEach(node => {
+                if (node.nodeType === 1) replaceCover(node);
+            }))).observe(document.body, { childList: true, subtree: true });
+        })();
+    </script>
 </body>
 
 </html>
